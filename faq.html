@@ -1,0 +1,1659 @@
+<!doctype html>
+<!-- %%[ set @url = requestparameter('pageurl') ]%% -->
+<html lang="pt_BR">
+
+<head>
+    <!-- Google tag (gtag.js) --> <script async src=https://www.googletagmanager.com/gtag/js?id=G-9PP5WK43LZ></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-9PP5WK43LZ'); </script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon"
+        href="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/canon-fav.ico"
+        type="image/x-icon">
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.11.0.css" type="text/css" media="all">
+    <title>Canon Rental - FAQ</title>
+    <style>
+        .col-12.footer-text {
+            line-height: normal;
+            font-weight: 400;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 7px;
+            font-size: 12px;
+        }
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .navbar {
+            padding: 32px 12px 8px;
+        }
+
+        /* Ínicio Navbar */
+        nav {
+            font-weight: 600;
+        }
+
+        .bg-light {
+            background-color: #ffffff !important;
+        }
+
+        .bag-cicle {
+            left: -6px;
+            margin-top: 5px;
+            width: 25px;
+            height: 25px;
+            background-color: #cc0000;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .offcanvas-header .btn-close {
+            background-color: #fff;
+        }
+
+        .offcanvas-end {
+            width: 300px;
+        }
+
+        .offcanvas-header {
+            justify-content: flex-end;
+        }
+
+        .fixed-top {
+            padding: 40px 24px;
+            box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.25);
+            padding: 32px 24px;
+        }
+
+        .offcanvas-body {
+            margin-top: -60px;
+        }
+
+        .menuMob {
+            display: flex;
+            gap: 16px;
+        }
+
+        .navbar-light .navbar-nav .nav-link.active,
+        .navbar-light .navbar-nav .show>.nav-link {
+            color: #cc0000;
+        }
+
+        .dropdown-menu-dark {
+            background-color: #eeeeee;
+        }
+
+        .dropdown-menu-dark .dropdown-item {
+            color: #2f2f2f;
+        }
+
+        .dropdown-menu-dark .dropdown-item:focus,
+        .dropdown-menu-dark .dropdown-item:hover {
+            color: #cc0000;
+            background-color: inherit;
+        }
+
+        @media (max-width: 992px) {
+
+            .container,
+            .container-md,
+            .container-sm {
+                max-width: 95vw;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .bag-cicle {
+                left: -6px;
+                margin-top: 5px;
+                width: 25px;
+                height: 25px;
+                background-color: #cc0000;
+                border-radius: 15px;
+                font-size: 12px;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 400;
+                position: relative;
+            }
+
+            .navbar>.container,
+            .navbar>.container-fluid,
+            .navbar>.container-lg,
+            .navbar>.container-md,
+            .navbar>.container-sm,
+            .navbar>.container-xl,
+            .navbar>.container-xxl {
+                display: flex;
+                flex-wrap: inherit;
+                align-items: center;
+                justify-content: flex-start;
+            }
+
+            .navbar-toggler:focus {
+                box-shadow: 0 0 0 0;
+            }
+
+            .navbar-light .navbar-nav .nav-link:focus,
+            .navbar-light .navbar-nav .nav-link:hover {
+                color: rgb(0 0 0 / 90%);
+            }
+
+            .menu-desk {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding-left: 24px;
+            }
+
+            li.nav-item {
+                padding: 0;
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .offset-md-1 {
+                margin-left: 4.33333333%;
+            }
+
+            .col-md-10 {
+                flex: 0 0 auto;
+                width: 90.333333%;
+            }
+        }
+
+        /* Final Navbar */
+
+        /* Banner */
+        .banner {
+            margin: 16px 0;
+        }
+
+        /* Banner */
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #cc0000;
+            margin: 16px 0;
+            letter-spacing: -1px;
+        }
+
+        .box-content {
+            padding: 24px 32px;
+            background-color: #f1f1f1;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box-content-card {
+            display: flex;
+            padding: 24px 32px;
+            background-color: #f1f1f1;
+            gap: 16px;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .card-item {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .desc-card {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            background-color: #cc0000;
+            color: #fff;
+            padding: 10px 50px 10px 15px;
+            border-radius: 0 70px 0 0;
+        }
+
+        .home-card-link:hover {
+            transform: scale(1.02);
+        }
+
+        .product-box {
+            margin: 32px 0;
+            display: flex;
+            gap: 24px 8px;
+            flex-wrap: wrap;
+            justify-content: left;
+        }
+
+        img.product-photo {
+            border-radius: 10px 10px 0 0;
+            height: 200px;
+            object-fit: cover;
+            object-position: top;
+            background-color: #FCFCFC
+        }
+
+
+
+        .nav-category {
+            margin: 32px 0 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        a.menu-category {
+            background-color: #383838;
+            color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            opacity: 0.6;
+        }
+
+        a.menu-category.active {
+            opacity: 1;
+        }
+
+        a.menu-category:hover {
+            opacity: 1;
+        }
+
+        .product-card-description {
+            padding: 24px 32px;
+            background-color: #FCFCFC;
+        }
+
+        .product-card-cta {
+            background-color: #cc0000;
+            text-align: center;
+            padding: 8px 16px;
+            border-radius: 0 0 10px 10px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .product-card-cta:hover {
+            background-color: #8D0F0F;
+            color: #fff;
+        }
+
+        .product-card-description-title {
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .product-card-description-info {
+            margin: 8px 0;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 19px;
+        }
+
+        .product-card-description-price-info {
+            font-size: 16px;
+            line-height: 25px;
+            letter-spacing: 0.4px;
+            margin-top: 16px;
+        }
+
+        .product-card-description-price-value {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 36px;
+            color: #cc0000;
+            margin-top: 4px;
+        }
+
+        .product-card-description-price-value span {
+            font-size: 32px;
+        }
+
+        .product-card-description-more {
+            font-weight: 300;
+            font-size: 13px;
+            line-height: 13px;
+            text-decoration-line: underline;
+            color: #5B5B5B;
+            margin-top: 12px;
+            display: block;
+        }
+
+        .product-card-description-more:hover {
+            color: #000000;
+        }
+
+        @media (min-width: 992px) {
+            .box-content-card {
+                flex-direction: row;
+            }
+
+            .card-item {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                position: relative;
+            }
+
+            .desc-card {
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                background-color: #cc0000;
+                color: #fff;
+                padding: 10px 50px 10px 15px;
+                border-radius: 0 70px 0 0;
+            }
+
+            .home-card-link:hover {
+                transform: scale(1.02);
+            }
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            width: 99%;
+        }
+
+        @media (min-width: 680px) {
+            .product-card-description-title {
+                font-size: 20px;
+            }
+
+            .product-card {
+                width: 48.3%;
+            }
+        }
+
+        @media (min-width: 921px) {
+            .product-card-description-title {
+                font-size: 20px;
+            }
+
+            .product-card {
+                width: 257px;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .product-card-description-title {
+                font-size: 24px;
+            }
+
+            .product-card {
+                width: 285px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .product-card {
+                width: 345px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .product-card {
+                width: 299px;
+            }
+        }
+
+        a.btn-orcamento {
+            background-color: #cc0000;
+            color: #fff;
+            padding: 12px 24px;
+            margin: 8px 0 16px;
+            display: inline-block;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        a.btn-orcamento:hover {
+            background-color: #8D0F0F;
+        }
+
+        .galery {
+            display: flex;
+            gap: 16px;
+            margin-top: 36px;
+            flex-direction: column;
+        }
+
+        img.galery-photo-item {
+            width: 100%;
+        }
+
+        .galery-photo {
+            width: 100%;
+        }
+
+        @media (min-width: 650px) {
+            .galery-photo {
+                width: 48%;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .galery-photo {
+                width: 428px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .galery-photo {
+                width: 340px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .galery-photo {
+                width: 400px;
+            }
+        }
+
+        @media (min-width: 650px) {
+            .galery {
+                flex-direction: row;
+                flex-wrap: wrap;
+                display: flex;
+                gap: 16px;
+            }
+        }
+
+
+        .accordion-button:not(.collapsed) {
+            color: #000000;
+            background-color: #d7d7d7;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+        }
+
+        /* Footer */
+        #footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px 0;
+            text-align: center;
+            background-color: #434343;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-weight: 600;
+            margin-top: 50px;
+        }
+
+        /* Footer */
+
+        .products {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        img.modal_product {
+            width: 50%;
+            max-width: 250px;
+        }
+
+        .modal-content {
+            width: 97%;
+            margin: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .inputGroup {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        h3.heading-form {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 24px;
+        }
+
+        h4.heading-form {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        .input-item {
+            width: 100%;
+        }
+
+        .dataBox {
+            gap: 16px 0px;
+        }
+
+        @media (min-width: 992px) {
+            .input-item {
+                width: 45%;
+            }
+        }
+
+        .inp-options {
+            display: flex;
+            gap: 16px;
+            margin: 8px 0;
+        }
+
+        form button.btn.btn-primary {
+            margin-top: 32px;
+        }
+
+
+        .card-registration .select-input.form-control[readonly]:not([disabled]) {
+            font-size: 1rem;
+            line-height: 2.15;
+            padding-left: .75em;
+            padding-right: .75em;
+        }
+
+        .card-registration .select-arrow {
+            top: 13px;
+        }
+
+        .bg-grey {
+            background-color: #eae8e8;
+        }
+
+
+        @media (min-width: 992px) {
+            .card-registration-2 .bg-grey {
+                border-top-right-radius: 16px;
+                border-bottom-right-radius: 16px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .card-registration-2 .bg-grey {
+                border-bottom-left-radius: 16px;
+                border-bottom-right-radius: 16px;
+            }
+        }
+
+        .removeBtn {
+            display: flex;
+            justify-content: center;
+        }
+
+        input#form1 {
+            text-align: center;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #cc0000;
+            border-color: #cc0000;
+            border-radius: 0.25rem;
+            max-width: 400px;
+        }
+
+        .btn-primary:hover {
+            background-color: #cc0000;
+            border: 0;
+        }
+
+        .form-check-input:checked {
+            background-color: #cc0000;
+            border-color: #cc0000;
+        }
+
+        .form-check-input:focus {
+            border-color: #cc0000;
+            outline: 0;
+            box-shadow: #cc000054
+        }
+
+        .form-control:focus {
+            color: #212529;
+            background-color: #fff;
+            border-color: #cc0000;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(253, 49, 13, 0.25);
+        }
+
+        p.disclaimer {
+            font-size: 13px;
+            margin-top: -10px;
+        }
+
+        #equipamentos>div:nth-child(1)>hr:nth-child(1) {
+            display: none;
+        }
+
+        .btn-link {
+            font-weight: 400;
+            color: #cc0000;
+            text-decoration: underline;
+        }
+
+        .accordion-body {
+            padding: 1rem 1.25rem;
+            background-color: #434343;
+            color: #fff;
+        }
+    </style>
+
+    <!-- Início do aviso de consentimento de cookies OneTrust para cloud.canondigital.com.br/canonrental/ -->
+    <script type="text/javascript"
+        src="https://cdn.cookielaw.org/consent/1121c3a6-a496-4863-9de9-6381f3626f84/OtAutoBlock.js"></script>
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8"
+        data-domain-script="1121c3a6-a496-4863-9de9-6381f3626f84"></script>
+    <script type="text/javascript">
+        function OptanonWrapper() { }
+    </script>
+    <!-- Final do aviso de consentimento de cookies OneTrust para cloud.canondigital.com.br/canonrental/ -->
+</head>
+<script
+    src="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/rental/loadCart.js"></script>
+
+<body>
+    <header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-md-none d-lg-block">
+				<div class="container">
+					<a class="navbar-brand"><img class="logoImage" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/eeebe5f2-81a9-4d3f-a713-09b3d74e47da.png" height="40px" alt="Logotipo do Canon Rental"></a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="menu-desk">
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a class="nav-link" aria-current="page" href="https://cloud.canondigital.com.br/canonrental">O que é Canon Rental?</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Aluguel de Equipamentos
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/equipamentos">Câmeras e Lentes - DSLR, Mirrorless e PTZ</a></li>
+										<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/cinema">Cinema & Broadcast</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Aluguel de Estúdio
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/estudiofotografico">Estúdio
+												Fotográfico</a></li>
+										<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/estudiovideo">Estúdio de
+												vídeo e Podcast</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link active" href="https://cloud.canondigital.com.br/canonrental/faq">FAQ</a>
+								</li>
+
+							</ul>
+						</div>
+						<a href="https://cloud.canondigital.com.br/canonrental/orcamento">
+							<div class="d-flex bag-icon">
+								<img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/1bd60532-c11e-4542-9a33-1d70097bbe48.png" width="30px">
+								<span class="bag-cicle bag-cicle-desk">0</span>
+							</div>
+						</a>
+					</div>
+				</div>
+			</nav>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light d-block d-md-block d-lg-none">
+				<div class="container">
+					<a class="navbar-brand"><img class="logoImage" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/eeebe5f2-81a9-4d3f-a713-09b3d74e47da.png" height="40px" alt="Logotipo do Canon Rental"></a>
+					<div class="menuMob">
+						<a href="https://cloud.canondigital.com.br/canonrental/orcamento">
+							<div class="d-flex bag-icon">
+								<img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/1bd60532-c11e-4542-9a33-1d70097bbe48.png" width="30px">
+								<span class="bag-cicle bag-cicle-desk">0</span>
+							</div>
+						</a>
+						<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+							<div class="offcanvas-header">
+								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+							</div>
+							<div class="offcanvas-body">
+								<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+									<li class="nav-item">
+										<a class="nav-link" href="https://cloud.canondigital.com.br/canonrental">O que é
+											Canon Rental?</a>
+									</li>
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Aluguel de Equipamentos </a>
+										<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+											<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/equipamentos">Câmeras e Lentes</a></li>
+											<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/cinema">Cinema & Broadcast</a></li>
+										</ul>
+									</li>
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											Aluguel de Estúdio
+										</a>
+										<ul class="dropdown-menu dropdown-menu-dark">
+											<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/estudiofotografico">Estúdio
+													Fotográfico</a></li>
+											<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/estudiovideo">Estúdio
+													de vídeo e Podcast</a></li>
+										</ul>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="https://cloud.canondigital.com.br/canonrental/faq">FAQ</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+        <div class="banner">
+            <div class="container">
+                <div class="row row-flex">
+                    <div class="col-12">
+                        <img class="d-none d-md-none d-lg-block"
+                            src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/ac003161-3606-4e0d-babe-03d9d887478f.jpg"
+                            width="100%"
+                            alt="Banner do Canon Rental, mostrando algumas imagens de Câmeras, lentes e estúdio.">
+                        <img class="d-block d-md-block d-lg-none"
+                            src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/aabd8f50-973c-4d58-afe9-2b6520557da6.jpg"
+                            width="100%" height="350px" style="object-fit:cover; height: auto;"
+                            alt="Banner do Canon Rental, mostrando algumas imagens de Câmeras, lentes e estúdio.">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="rental">
+            <div class="container">
+                <div class="row row-flex">
+                    <div class="col-12">
+                        <h2>FAQ</h2>
+                    </div>
+                    <div class="col-12">
+                        <div class="box-content">
+                            <div class="description">
+                                <p>Bem-vindo à nossa seção de Perguntas Frequentes (FAQ)!</p>
+                                <p>Aqui você encontrará as informações para responder a todas as suas perguntas mais
+                                    comuns. Seja sobre nossos produtos, serviços, políticas ou qualquer outra coisa
+                                    relacionada ao Canon Rental, estamos aqui para ajudar. Navegue pelas perguntas
+                                    organizadas de forma intuitiva e encontre respostas claras e concisas para suas
+                                    dúvidas.</p>
+                                <p>Estamos comprometidos em garantir sua satisfação e em mantê-lo bem informado. </p>
+                                <p>Caso não encontre a resposta para sua dúvida envie um e-mail para <a
+                                        href="mailto:">rental@cusa.canon.com</a>.</p>
+                                <p></p>
+                                <p></p>
+                            </div>
+                            <br><br>
+                            <h4>FAQ – Aluguel de Equipamentos de Foto & Vídeo Canon do Brasil.</h4>
+                            <br>
+                            <div class="accordion" id="accordionFaq">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading17">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse17" aria-expanded="false"
+                                            aria-controls="collapse17">
+                                            Onde vocês estão localizados e atendimento.
+                                        </button>
+                                    </h3>
+                                    <div id="collapse17" class="accordion-collapse collapse" aria-labelledby="heading17"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>A Canon do Brasil está na Av. do Café, 277, 6º Andar, Torre B, Vila
+                                                Guarani. (Próximo ao Metrô Conceição).</p>
+                                            <p>Nosso horário de atendimento é de Segunda a Sexta-feira das 9h às 16:30h.
+                                            </p>
+                                            <p>É essencial realizar o agendamento prévio para qualquer tipo de
+                                                atendimento presencial através do e-mail: rental@cusa.canon.com</p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading18">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse18" aria-expanded="false"
+                                            aria-controls="collapse18">
+                                            Quem pode alugar equipamentos?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse18" class="accordion-collapse collapse" aria-labelledby="heading18"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Pessoa física ou jurídica, mediante *cadastro prévio. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading19">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse19" aria-expanded="false"
+                                            aria-controls="collapse19">
+                                            Pré-requisitos para alugar.
+                                        </button>
+                                    </h3>
+                                    <div id="collapse19" class="accordion-collapse collapse" aria-labelledby="heading19"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>Ser maior de 18 anos;</li>
+                                                <li>Possuir cartão de crédito;</li>
+                                                <li>Comprovante de endereço;</li>
+                                                <li>Informações que comprovem vínculo de atividade profissional:
+                                                    website, redes sociais, ARFOC, entre outros.;</li>
+                                                <li>Ter o SCORE de crédito aprovado. (data de nascimento, nome completo,
+                                                    CPF).</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading20">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse20" aria-expanded="false"
+                                            aria-controls="collapse20">
+                                            Sou uma locadora, também posso alugar?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse20" class="accordion-collapse collapse" aria-labelledby="heading20"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Sim, porém é necessário ter seu cadastro pré-aprovado e ter histórico de
+                                                investimento diretamente com a Canon do Brasil e/ou suas revendas
+                                                autorizadas. Para mais informações envie um e-mail para
+                                                rental@cusa.canon.com.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading21">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse21" aria-expanded="false"
+                                            aria-controls="collapse21">
+                                            O que é a diária fim de semana?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse21" class="accordion-collapse collapse" aria-labelledby="heading21"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Nesse tipo de diária você retira o equipamento na
+                                                <strong>sexta-feira</strong> e devolve <strong>segunda-feira</strong> de
+                                                manhã e paga <strong>apenas uma diária.</strong></p>
+                                            <p>É isso mesmo! Fique com o equipamento durante todo o fim de semana
+                                                pagando o mesmo valor de uma diária normal.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading22">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse22" aria-expanded="false"
+                                            aria-controls="collapse22">
+                                            Como faço o orçamento?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse22" class="accordion-collapse collapse" aria-labelledby="heading22"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Alugar conosco é muito simples. Em nosso site, selecione os produtos
+                                                desejados e preencha os campos solicitados. Não se esqueça de colocar o
+                                                número de diárias, quanto maior o período de locação maior será o
+                                                desconto.</p>
+                                            <p>Importante: O orçamento não é garantia de reserva dos equipamentos. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading23">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse23" aria-expanded="false"
+                                            aria-controls="collapse23">
+                                            Como funciona a reserva?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse23" class="accordion-collapse collapse" aria-labelledby="heading23"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>A reserva dos equipamentos só ocorrerá mediante confirmação da
+                                                disponibilidade para uso no período informado bom como aprovação do
+                                                orçamento enviado ao cliente e assinatura do contrato de locação. Caso o
+                                                orçamento não seja aprovado não garantimos a reserva. </p>
+                                            <p>Toda e qualquer solicitação de orçamento deverá respeitar nosso tempo de
+                                                resposta de 1 dia útil.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading24">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse24" aria-expanded="false"
+                                            aria-controls="collapse24">
+                                            Como funciona o pagamento?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse24" class="accordion-collapse collapse" aria-labelledby="heading24"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Ao término da locação e feita a devolução dos equipamentos dentro do
+                                                *período estipulado em contrato será gerado um link de pagamento e
+                                                enviado para o seu e-mail com as informações de pagamento.</p>
+                                            <p>Caso, a devolução não ocorra no período acordado, será cobrado diária
+                                                adicional de locação, nos valores vigentes ao contrato.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading25">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse25" aria-expanded="false"
+                                            aria-controls="collapse25">
+                                            Os equipamentos possuem seguro?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse25" class="accordion-collapse collapse" aria-labelledby="heading25"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Não, os equipamentos não possuem seguro, porém o cliente poderá contratar
+                                                o *seguro pontual dos equipamentos, de acordo com os valores descritos
+                                                na ficha de locação e nota fiscal de remessa de ativo.</p>
+                                            <p>*A contratação do seguro pontual é facultativa. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading26">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse26" aria-expanded="false"
+                                            aria-controls="collapse26">
+                                            Vocês tem alguma empresa parceira para contratação de Seguro?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse26" class="accordion-collapse collapse" aria-labelledby="heading26"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Sim, nós temos a Safer Corretora de Seguros www.safercorretora.com.br
+                                                todavia o cliente é livre para escolher a seguradora/corretora que
+                                                melhor lhe atenda.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading27">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse27" aria-expanded="false"
+                                            aria-controls="collapse27">
+                                            Posso revisar o contrato antes de locar o equipamento?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse27" class="accordion-collapse collapse" aria-labelledby="heading27"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Sim, basta <a href="" target="_blank">clicar aqui</a> para ter acesso ao
+                                                contrato integral. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading28">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse28" aria-expanded="false"
+                                            aria-controls="collapse28">
+                                            Vocês oferecem serviço de entrega e retirada?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse28" class="accordion-collapse collapse" aria-labelledby="heading28"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Não, todos os equipamentos devem ser retirados e devolvidos pelo próprio
+                                                locatário em nosso sede comercial localizada na Av. do Café, 277, 6º
+                                                Andar, Torre B, Vila Guarani.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading29">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse29" aria-expanded="false"
+                                            aria-controls="collapse29">
+                                            Os equipamentos acompanham cartão de memória?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse29" class="accordion-collapse collapse" aria-labelledby="heading29"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Não, não fornecemos cartão de memória. Verifique o modelo de cartão
+                                                compatível com a câmera a ser alugada no descritivo dos equipamentos.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading30">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse30" aria-expanded="false"
+                                            aria-controls="collapse30">
+                                            Vocês enviam para outras cidades ou estados?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse30" class="accordion-collapse collapse" aria-labelledby="heading30"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>A princípio não, toda nossa operação está concentrada na cidade de São
+                                                Paulo, com atendimento presencial em nossa sede comercial localizada na
+                                                Av. do Café, 277, 6º Andar, Torre B, Vila Guarani</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading31">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse31" aria-expanded="false"
+                                            aria-controls="collapse31">
+                                            Por quanto tempo posso alugar um equipamento?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse31" class="accordion-collapse collapse" aria-labelledby="heading31"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Nosso período máximo para locação é de 40 dias por equipamento.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading32">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse32" aria-expanded="false"
+                                            aria-controls="collapse32">
+                                            Posso estender a duração do aluguem durante o período acordado?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse32" class="accordion-collapse collapse" aria-labelledby="heading32"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Pode, desde que notificado previamente e aprovado pela nossa equipe de
+                                                atendimento.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading33">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse33" aria-expanded="false"
+                                            aria-controls="collapse33">
+                                            É necessário deixar um depósito de segurança?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse33" class="accordion-collapse collapse" aria-labelledby="heading33"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Não, entretanto a Canon se reserva ao direito de efetuar cobranças
+                                                adicionais após a devolução do equipamento, caso seja detectada qualquer
+                                                anormalidade por mau uso ou ausência de componentes ou acessórios. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading34">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse34" aria-expanded="false"
+                                            aria-controls="collapse34">
+                                            O que devo fazer se eu perder ou danificar um equipamento alugado?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse34" class="accordion-collapse collapse" aria-labelledby="heading34"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Conforme consta em nosso contrato o locatário deverá pagar o equivalente
+                                                ao dano.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading35">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse35" aria-expanded="false"
+                                            aria-controls="collapse35">
+                                            Como são calculadas as taxas de aluguel?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse35" class="accordion-collapse collapse" aria-labelledby="heading35"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Nossas taxas são calculadas como base no valor do equipamento e valores
+                                                praticados no mercado audiovisual. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading36">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse36" aria-expanded="false"
+                                            aria-controls="collapse36">
+                                            O que devo fazer se o equipamento alugado apresentar algum defeito durante o
+                                            uso?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse36" class="accordion-collapse collapse" aria-labelledby="heading36"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Notificar a equipe de atendimento de rental através do e-mail:
+                                                rental@cusa.canon.com.
+                                                É proibido ao cliente promover o reparo do equipamento alugado, por si
+                                                ou por terceiro não autorizado.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading37">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse37" aria-expanded="false"
+                                            aria-controls="collapse37">
+                                            Há restrições de uso para os equipamentos alugados?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse37" class="accordion-collapse collapse" aria-labelledby="heading37"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Não recomendamos a utilização em condições extremas, que venha trazer
+                                                risco de danos irreparáveis.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading38">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse38" aria-expanded="false"
+                                            aria-controls="collapse38">
+                                            É possível agendar uma visita para conhecer os equipamentos antes de
+                                            alugá-los?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse38" class="accordion-collapse collapse" aria-labelledby="heading38"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Sim, entre em contato através do rental@cusa.canon.com para agendar sua
+                                                visita.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading39">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse39" aria-expanded="false"
+                                            aria-controls="collapse39">
+                                            Posso cancelar uma reserva? Existem taxas de cancelamento?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse39" class="accordion-collapse collapse" aria-labelledby="heading39"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Pode, não existem taxas de cancelamento.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading40">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse40" aria-expanded="false"
+                                            aria-controls="collapse40">
+                                            Vocês trabalham com planos de assinatura de equipamentos? Ex: Plano
+                                            trimestral, etc?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse40" class="accordion-collapse collapse" aria-labelledby="heading40"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Por enquanto não, nosso período máximo de locação são 40 dias.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading41">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse41" aria-expanded="false"
+                                            aria-controls="collapse41">
+                                            Vocês fornecem acessórios adicionais, como baterias extras, carregadores,
+                                            etc?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse41" class="accordion-collapse collapse" aria-labelledby="heading41"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Todas as câmeras e lentes acompanham os acessórios originais do kit. </p>
+                                            <p>Kit câmera: tampa do corpo da câmera, 1 bateria, 1 carregador e alça.</p>
+                                            <p>Kit Lente: tampa frontal e traseira, para-sol e anel de tripé (se
+                                                aplicável). </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading42">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse42" aria-expanded="false"
+                                            aria-controls="collapse42">
+                                            Vocês alugam acessórios de terceiros como tripés, luz, etc?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse42" class="accordion-collapse collapse" aria-labelledby="heading42"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Não, só locamos acessórios Canon, como flashes, baterias, carregadores,
+                                                entre outros.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="heading43">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse43" aria-expanded="false"
+                                            aria-controls="collapse43">
+                                            Meu equipamento está na assistência técnica da Canon, tenho alguma condição
+                                            especial para locação?
+                                        </button>
+                                    </h3>
+                                    <div id="collapse43" class="accordion-collapse collapse" aria-labelledby="heading43"
+                                        data-bs-parent="#accordionFaq">
+                                        <div class="accordion-body">
+                                            <p>Sim, enquanto o seu equipamento aguarda o reparo ou importação de peças,
+                                                temos uma diária de locação diferenciada. Para mais informações:
+                                                rental@cusa.canon.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <!--<h4>FAQ – Aluguel de Estúdios Casa Canon</h4>
+                                <br>
+                                <div class="accordion" id="accordionFaq">
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading1">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                                Qual o endereço da Casa Canon?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Rua Doutor Amâncio de Carvalho, 86 loja 05 na Vila Mariana em São Paulo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading2">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                                Quais as opções de agendamento?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>Das 09h00 às 12h00;</li>
+                                                    <li>Das 14h00 às 17h00;</li>
+                                                    <li>Das 09h00 às 17h00.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading3">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                                Quais os dias estão disponíveis para locação?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>De segunda a sexta-feira, exceto feriados.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading4">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                                Existe estacionamento no local?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>O condomínio possui estacionamento e o pagamento é a parte e deve ser feito diretamente com a empresa responsável pelo estacionamento.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading5">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                                Qual a voltagem dos estúdios?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Ambos funcionam na voltagem 127V.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading6">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                                Qual o tamanho do Estúdio de Vídeo e PodCast?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Tem o tamanho de 30m2.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading8">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                                Qual o tamanho do Estúdio de Fotografia?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Tem o tamanho de 12m2 e com pé direito de 2,65m de altura.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading9">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                                Existe sala de apoio?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Sim, temos uma sala de apoio ao lado dos Estúdios com mesa para reunião de até 6 pessoas.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading10">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                                Possui camarim?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Não temos camarim, mas possuímos 2 toaletes no piso inferior, além de uma penteadeira.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading11">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                                                Quais os equipamentos estão disponíveis no Estúdio Fotográfico?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Câmeras</p>
+                                                <ul>
+                                                    <li>EOS T7+</li>
+                                                    <li>EOS M200</li>
+                                                    <li>EOS M50</li>
+                                                    <li>EOS SL3</li>
+                                                    <li>EOS T8i</li>
+                                                    <li>EOS RP</li>
+                                                    <li>EOS 90D</li>
+                                                    <li>EOS 5D Mark IV</li>
+                                                    <li>EOS R</li>
+                                                    <li>EOS R10</li>
+                                                    <li>EOS R7</li>
+                                                    <li>EOS R50</li>
+                                                    <li>EOS R5</li>
+                                                    <li>EOS 1DX Mark III</li>
+                                                    <li>EOS R3</li>
+                                                </ul>
+                                                <br>
+                                                <p>Lentes EF / EFS</p>
+                                                <ul>
+                                                    <li>8-15mm</li>
+                                                    <li>11-24mm</li>
+                                                    <li>14mm</li>
+                                                    <li>TS-E 17mm</li>
+                                                    <li>16-35mm</li>
+                                                    <li>24mm</li>
+                                                    <li>35mm</li>
+                                                    <li>85mm</li>
+                                                    <li>24-70mm</li>
+                                                    <li>70-200mm</li>
+                                                    <li>100mm</li>
+                                                    <li>135mm</li>
+                                                    <li>100-400mm</li>
+                                                    <li>400mm</li>
+                                                </ul>
+                                                <br>
+                                                <p>Lentes RF</p>
+                                                <ul>
+                                                    <li>14-35mm</li>
+                                                    <li>16mm</li>
+                                                    <li>15-30mm</li>
+                                                    <li>24mm</li>
+                                                    <li>24-70mm</li>
+                                                    <li>24-105mm</li>
+                                                    <li>50mm</li>
+                                                    <li>85mm</li>
+                                                    <li>70-200mm</li>
+                                                    <li>100mm</li>
+                                                    <li>100-500mm</li>
+                                                    <li>600mm</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading12">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                                                Quais os equipamentos estão disponíveis no Estúdio de Vídeo e PodCast?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Câmeras</p>
+                                                <ul>
+                                                    <li>EOS T7+</li>
+                                                    <li>EOS M200</li>
+                                                    <li>EOS M50</li>
+                                                    <li>EOS SL3</li>
+                                                    <li>EOS T8i</li>
+                                                    <li>EOS RP</li>
+                                                    <li>EOS 90D</li>
+                                                    <li>EOS 5D Mark IV</li>
+                                                    <li>EOS R</li>
+                                                    <li>EOS R10</li>
+                                                    <li>EOS R7</li>
+                                                    <li>EOS R50</li>
+                                                    <li>EOS R5</li>
+                                                    <li>EOS 1DX Mark III</li>
+                                                    <li>EOS R3</li>
+                                                </ul>
+                                                <br>
+                                                <p>Lentes EF / EFS</p>
+                                                <ul>
+                                                    <li>8-15mm</li>
+                                                    <li>11-24mm</li>
+                                                    <li>14mm</li>
+                                                    <li>TS-E 17mm</li>
+                                                    <li>16-35mm</li>
+                                                    <li>24mm</li>
+                                                    <li>35mm</li>
+                                                    <li>85mm</li>
+                                                    <li>24-70mm</li>
+                                                    <li>70-200mm</li>
+                                                    <li>100mm</li>
+                                                    <li>135mm</li>
+                                                    <li>100-400mm</li>
+                                                    <li>400mm</li>
+                                                </ul>
+                                                <br>
+                                                <p>Lentes RF</p>
+                                                <ul>
+                                                    <li>14-35mm</li>
+                                                    <li>16mm</li>
+                                                    <li>15-30mm</li>
+                                                    <li>24mm</li>
+                                                    <li>24-70mm</li>
+                                                    <li>24-105mm</li>
+                                                    <li>50mm</li>
+                                                    <li>85mm</li>
+                                                    <li>70-200mm</li>
+                                                    <li>100mm</li>
+                                                    <li>100-500mm</li>
+                                                    <li>600mm</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading13">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
+                                                Posso levar equipamento de outras marcas para gravação nos Estúdios?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse13" class="accordion-collapse collapse" aria-labelledby="heading13" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Ainda a ser definido.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading14">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
+                                                Posso produzir qualquer tipo de conteúdo nos Estúdios?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse14" class="accordion-collapse collapse" aria-labelledby="heading14" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Ainda a ser definido.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading15">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse15" aria-expanded="false" aria-controls="collapse15">
+                                                Posso levar o meu equipamento da marca Canon?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse15" class="accordion-collapse collapse" aria-labelledby="heading15" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Pode sim usar no estúdio e aproveitar para testar outros modelos.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="heading16">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse16" aria-expanded="false" aria-controls="collapse16">
+                                                Posso consumir alimentos e bebidas nos Estúdios?
+                                            </button>
+                                        </h3>
+                                        <div id="collapse16" class="accordion-collapse collapse" aria-labelledby="heading16" data-bs-parent="#accordionFaq">
+                                            <div class="accordion-body">
+                                                <p>Não é permitido. Para isso, temos uma sala de apoio ao lado do espaço.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+		<section id="footer">
+			<style>
+				.footerLogo {
+					display: flex;
+					align-items: center;
+					gap: 16px;
+					text-align: center;
+					flex-direction: column;
+					padding: 20px 0 10px;
+				}
+
+				@media (min-width: 768px) {
+					.footerLogo {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						gap: 32px;
+						text-align: left;
+						flex-direction: row;
+					}
+				}
+			</style>
+			<div class="container">
+				<div class="row row-flex" style="display: flex; align-items: center;">
+					<div class="col-12 footerLogo">
+						<div class="divLogo"><img src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/92af1948-fd4b-4b4f-a542-b74b92ad99ae.png" width="100%" style="max-width: 150px;"></div>
+						<div class="divDados"><span>CANON DO BRASIL INDÚSTRIA E COMÉRCIO Ltda.</span><br>
+							<span style="font-weight: 100;">CNPJ: 46.266.771/0001-26</span><br>
+							<span style="font-weight: 100;">Inscrição Estadual: 145.145.151.111</span>
+							<!-- <br> <span style="font-weight: 100;">Endereço: Av. do Café, 277 - Torre B - 6° Andar - Vila Guarani</span>-->
+							<span style="font-weight: 100;"><a href="https://canonbrasil-privacy.my.onetrust.com/webform/ff2f82a5-84f4-4d08-8bff-1ee75db63d1e/6399d342-9d43-45d5-8c45-e65601f034de" target="_blank" style="color: #fff; text-decoration: underline; display: block; margin-top: 10px; font-size: 12px;">LGPD - Exerça seus direitos.</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+    <script type="text/javascript"
+        src="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/rental/addCart.js"></script>
+    <script type="text/javascript"
+        src="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/rental/refreshItens.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

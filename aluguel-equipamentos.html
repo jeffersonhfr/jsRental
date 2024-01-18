@@ -1,0 +1,2314 @@
+<!doctype html>
+<!-- %%[ set @url = requestparameter('pageurl') ]%% -->
+<html lang="pt_BR">
+
+<head>
+    <!-- Google tag (gtag.js) --> <script async src=https://www.googletagmanager.com/gtag/js?id=G-9PP5WK43LZ></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-9PP5WK43LZ'); </script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon"
+        href="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/canon-fav.ico"
+        type="image/x-icon">
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.11.0.css" type="text/css" media="all">
+    <title>Canon Rental - Aluguel de Equipamentos</title>
+    <style>
+        .col-12.footer-text {
+            line-height: normal;
+            font-weight: 400;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 7px;
+            font-size: 12px;
+        }
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .navbar {
+            padding: 32px 12px 8px;
+        }
+
+        /* Ínicio Navbar */
+        nav {
+            font-weight: 600;
+        }
+
+        .bg-light {
+            background-color: #ffffff !important;
+        }
+
+        .bag-cicle {
+            left: -6px;
+            margin-top: 5px;
+            width: 25px;
+            height: 25px;
+            background-color: #cc0000;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .offcanvas-header .btn-close {
+            background-color: #fff;
+        }
+
+        .offcanvas-end {
+            width: 300px;
+        }
+
+        .offcanvas-header {
+            justify-content: flex-end;
+        }
+
+        .fixed-top {
+            padding: 40px 24px;
+            box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.25);
+            padding: 32px 24px;
+        }
+
+        .offcanvas-body {
+            margin-top: -60px;
+        }
+
+        .menuMob {
+            display: flex;
+            gap: 16px;
+        }
+
+        .navbar-light .navbar-nav .nav-link.active,
+        .navbar-light .navbar-nav .show>.nav-link {
+            color: #cc0000;
+        }
+
+        .dropdown-menu-dark {
+            background-color: #eeeeee;
+        }
+
+        .dropdown-menu-dark .dropdown-item {
+            color: #2f2f2f;
+        }
+
+        .dropdown-menu-dark .dropdown-item:focus,
+        .dropdown-menu-dark .dropdown-item:hover {
+            color: #cc0000;
+            background-color: inherit;
+        }
+
+        @media (max-width: 992px) {
+
+            .container,
+            .container-md,
+            .container-sm {
+                max-width: 95vw;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .bag-cicle {
+                left: -6px;
+                margin-top: 5px;
+                width: 25px;
+                height: 25px;
+                background-color: #cc0000;
+                border-radius: 15px;
+                font-size: 12px;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 400;
+                position: relative;
+            }
+
+            .navbar>.container,
+            .navbar>.container-fluid,
+            .navbar>.container-lg,
+            .navbar>.container-md,
+            .navbar>.container-sm,
+            .navbar>.container-xl,
+            .navbar>.container-xxl {
+                display: flex;
+                flex-wrap: inherit;
+                align-items: center;
+                justify-content: flex-start;
+            }
+
+            .navbar-toggler:focus {
+                box-shadow: 0 0 0 0;
+            }
+
+            .navbar-light .navbar-nav .nav-link:focus,
+            .navbar-light .navbar-nav .nav-link:hover {
+                color: rgb(0 0 0 / 90%);
+            }
+
+            .menu-desk {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding-left: 24px;
+            }
+
+            li.nav-item {
+                padding: 0;
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .offset-md-1 {
+                margin-left: 4.33333333%;
+            }
+
+            .col-md-10 {
+                flex: 0 0 auto;
+                width: 90.333333%;
+            }
+        }
+
+        /* Final Navbar */
+
+        /* Banner */
+        .banner {
+            margin: 16px 0;
+        }
+
+        /* Banner */
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #cc0000;
+            margin: 16px 0;
+            letter-spacing: -1px;
+        }
+
+        .box-content {
+            padding: 24px 32px;
+            background-color: #f1f1f1;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box-content-card {
+            display: flex;
+            padding: 24px 32px;
+            background-color: #f1f1f1;
+            gap: 16px;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .card-item {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .desc-card {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            background-color: #cc0000;
+            color: #fff;
+            padding: 10px 50px 10px 15px;
+            border-radius: 0 70px 0 0;
+        }
+
+        .home-card-link:hover {
+            transform: scale(1.02);
+        }
+
+        .product-box {
+            margin: 32px 0;
+            display: flex;
+            gap: 24px 8px;
+            flex-wrap: wrap;
+            justify-content: left;
+        }
+
+        img.product-photo {
+            border-radius: 10px 10px 0 0;
+            height: 200px;
+            object-fit: cover;
+            object-position: top;
+            background-color: #FCFCFC
+        }
+
+        .nav-category {
+            margin: 32px 0 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        a.menu-category {
+            background-color: #383838;
+            color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+        a.menu-category.active {
+            opacity: 1;
+        }
+
+        a.menu-category:hover {
+            opacity: 1;
+        }
+
+        .product-card-description {
+            padding: 16px 32px;
+            background-color: #FCFCFC;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-card-cta {
+            background-color: #cc0000;
+            text-align: center;
+            padding: 8px 16px;
+            border-radius: 0 0 10px 10px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .product-card-cta:hover {
+            background-color: #8D0F0F;
+            color: #fff;
+        }
+
+        .product-card-description-title {
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .product-card-description-info {
+            margin: 8px 0;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 19px;
+        }
+
+        .product-card-description-price-info {
+            font-size: 16px;
+            line-height: 25px;
+            letter-spacing: 0.4px;
+            margin-top: 16px;
+        }
+
+        .product-card-description-price-value {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 36px;
+            color: #cc0000;
+            margin-top: 4px;
+        }
+
+        .product-card-description-price-value span {
+            font-size: 32px;
+        }
+
+        .product-card-description-more {
+            font-weight: 300;
+            font-size: 13px;
+            line-height: 13px;
+            text-decoration-line: underline;
+            color: #5B5B5B;
+            margin-top: 12px;
+            display: block;
+        }
+
+        .product-card-description-more:hover {
+            color: #000000;
+        }
+
+        @media (min-width: 992px) {
+            .box-content-card {
+                flex-direction: row;
+            }
+
+            .card-item {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                position: relative;
+            }
+
+            .desc-card {
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                background-color: #cc0000;
+                color: #fff;
+                padding: 10px 50px 10px 15px;
+                border-radius: 0 70px 0 0;
+            }
+
+            .home-card-link:hover {
+                transform: scale(1.02);
+            }
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            width: 99%;
+        }
+
+        @media (min-width: 680px) {
+            .product-card-description-title {
+                font-size: 20px;
+            }
+
+            .product-card {
+                width: 48.3%;
+            }
+        }
+
+        @media (min-width: 921px) {
+            .product-card-description-title {
+                font-size: 20px;
+            }
+
+            .product-card {
+                width: 257px;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .product-card-description-title {
+                font-size: 24px;
+            }
+
+            .product-card {
+                width: 285px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .product-card {
+                width: 345px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .product-card {
+                width: 299px;
+            }
+        }
+
+        a.btn-orcamento {
+            background-color: #cc0000;
+            color: #fff;
+            padding: 12px 24px;
+            margin: 8px 0 16px;
+            display: inline-block;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        a.btn-orcamento:hover {
+            background-color: #8D0F0F;
+        }
+
+        .galery {
+            display: flex;
+            gap: 16px;
+            margin-top: 36px;
+            flex-direction: column;
+        }
+
+        img.galery-photo-item {
+            width: 100%;
+        }
+
+        .galery-photo {
+            width: 100%;
+        }
+
+        @media (min-width: 650px) {
+            .galery-photo {
+                width: 48%;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .galery-photo {
+                width: 428px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .galery-photo {
+                width: 340px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .galery-photo {
+                width: 400px;
+            }
+        }
+
+        @media (min-width: 650px) {
+            .galery {
+                flex-direction: row;
+                flex-wrap: wrap;
+                display: flex;
+                gap: 16px;
+            }
+        }
+
+
+        .accordion-button:not(.collapsed) {
+            color: #000000;
+            background-color: #d7d7d7;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+        }
+
+        /* Footer */
+        #footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px 0;
+            text-align: center;
+            background-color: #434343;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-weight: 600;
+            margin-top: 50px;
+        }
+
+        /* Footer */
+
+        .products {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        img.modal_product {
+            width: 50%;
+            max-width: 250px;
+        }
+
+        .modal-content {
+            width: 97%;
+            margin: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .inputGroup {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        h3.heading-form {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 24px;
+        }
+
+        h4.heading-form {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        .input-item {
+            width: 100%;
+        }
+
+        .dataBox {
+            gap: 16px 0px;
+        }
+
+        @media (min-width: 992px) {
+            .input-item {
+                width: 45%;
+            }
+        }
+
+        .inp-options {
+            display: flex;
+            gap: 16px;
+            margin: 8px 0;
+        }
+
+        form button.btn.btn-primary {
+            margin-top: 32px;
+        }
+
+
+        .card-registration .select-input.form-control[readonly]:not([disabled]) {
+            font-size: 1rem;
+            line-height: 2.15;
+            padding-left: .75em;
+            padding-right: .75em;
+        }
+
+        .card-registration .select-arrow {
+            top: 13px;
+        }
+
+        .bg-grey {
+            background-color: #eae8e8;
+        }
+
+
+        @media (min-width: 992px) {
+            .card-registration-2 .bg-grey {
+                border-top-right-radius: 16px;
+                border-bottom-right-radius: 16px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .card-registration-2 .bg-grey {
+                border-bottom-left-radius: 16px;
+                border-bottom-right-radius: 16px;
+            }
+        }
+
+        .removeBtn {
+            display: flex;
+            justify-content: center;
+        }
+
+        input#form1 {
+            text-align: center;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #cc0000;
+            border-color: #cc0000;
+            border-radius: 0.25rem;
+            max-width: 400px;
+        }
+
+        .btn-primary:hover {
+            background-color: #8D0F0F;
+            border: 1px solid #8D0F0F;
+        }
+
+        .form-check-input:checked {
+            background-color: #cc0000;
+            border-color: #cc0000;
+        }
+
+        .form-check-input:focus {
+            border-color: #cc0000;
+            outline: 0;
+            box-shadow: #cc000054
+        }
+
+        .form-control:focus {
+            color: #212529;
+            background-color: #fff;
+            border-color: #cc0000;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(253, 49, 13, 0.25);
+        }
+
+        p.disclaimer {
+            font-size: 13px;
+            margin-top: -10px;
+        }
+
+        #equipamentos>div:nth-child(1)>hr:nth-child(1) {
+            display: none;
+        }
+
+        .btn-link {
+            font-weight: 400;
+            color: #cc0000;
+            text-decoration: underline;
+        }
+    </style>
+
+    <!-- Início do aviso de consentimento de cookies OneTrust para cloud.canondigital.com.br/canonrental/ -->
+    <script type="text/javascript"
+        src="https://cdn.cookielaw.org/consent/1121c3a6-a496-4863-9de9-6381f3626f84/OtAutoBlock.js"></script>
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8"
+        data-domain-script="1121c3a6-a496-4863-9de9-6381f3626f84"></script>
+    <script type="text/javascript">
+        function OptanonWrapper() { }
+    </script>
+    <!-- Final do aviso de consentimento de cookies OneTrust para cloud.canondigital.com.br/canonrental/ -->
+</head>
+<script
+    src="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/rental/loadCart.js"></script>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-md-none d-lg-block">
+            <div class="container">
+                <a class="navbar-brand"><img class="logoImage"
+                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/eeebe5f2-81a9-4d3f-a713-09b3d74e47da.png"
+                        height="40px" alt="Logotipo do Canon Rental"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="menu-desk">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page"
+                                    href="https://cloud.canondigital.com.br/canonrental">O que é Canon Rental?</a>
+                            </li>
+														<li class="nav-item dropdown">
+															<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+																	data-bs-toggle="dropdown" aria-expanded="false"> Aluguel de Equipamentos
+															</a>
+															<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+																	<li><a class="dropdown-item"
+																					href="https://cloud.canondigital.com.br/canonrental/equipamentos">Câmeras e Lentes - DSLR, Mirrorless e PTZ</a></li>
+																	<li><a class="dropdown-item"
+																					href="https://cloud.canondigital.com.br/canonrental/cinema">Cinema & Broadcast</a></li>
+															</ul>
+													</li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Aluguel de Estúdio
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item"
+                                            href="https://cloud.canondigital.com.br/canonrental/estudiofotografico">Estúdio
+                                            Fotográfico</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="https://cloud.canondigital.com.br/canonrental/estudiovideo">Estúdio de
+                                            vídeo e Podcast</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://cloud.canondigital.com.br/canonrental/faq">FAQ</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <a href="https://cloud.canondigital.com.br/canonrental/orcamento">
+                        <div class="d-flex bag-icon">
+                            <img loading="lazy"
+                                src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/1bd60532-c11e-4542-9a33-1d70097bbe48.png"
+                                width="30px">
+                            <span class="bag-cicle bag-cicle-desk">0</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+				<nav class="navbar navbar-expand-lg navbar-light bg-light d-block d-md-block d-lg-none">
+					<div class="container">
+						<a class="navbar-brand"><img class="logoImage" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/eeebe5f2-81a9-4d3f-a713-09b3d74e47da.png" height="40px" alt="Logotipo do Canon Rental"></a>
+						<div class="menuMob">
+							<a href="https://cloud.canondigital.com.br/canonrental/orcamento">
+								<div class="d-flex bag-icon">
+									<img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/1bd60532-c11e-4542-9a33-1d70097bbe48.png" width="30px">
+									<span class="bag-cicle bag-cicle-desk">0</span>
+								</div>
+							</a>
+							<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+								<div class="offcanvas-header">
+									<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+								</div>
+								<div class="offcanvas-body">
+									<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+										<li class="nav-item">
+											<a class="nav-link" href="https://cloud.canondigital.com.br/canonrental">O que é
+												Canon Rental?</a>
+										</li>
+										<li class="nav-item dropdown">
+											<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Aluguel de Equipamentos </a>
+											<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+												<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/equipamentos">Câmeras e Lentes</a></li>
+												<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/cinema">Cinema & Broadcast</a></li>
+											</ul>
+										</li>
+										<li class="nav-item dropdown">
+											<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+												Aluguel de Estúdio
+											</a>
+											<ul class="dropdown-menu dropdown-menu-dark">
+												<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/estudiofotografico">Estúdio
+														Fotográfico</a></li>
+												<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/estudiovideo">Estúdio
+														de vídeo e Podcast</a></li>
+											</ul>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="https://cloud.canondigital.com.br/canonrental/faq">FAQ</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+        <div class="banner">
+            <div class="container">
+                <div class="row row-flex">
+                    <div class="col-12">
+                        <img class="d-none d-md-none d-lg-block"
+                            src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/ac003161-3606-4e0d-babe-03d9d887478f.jpg"
+                            width="100%"
+                            alt="Banner do Canon Rental, mostrando algumas imagens de Câmeras, lentes e estúdio.">
+                        <img class="d-block d-md-block d-lg-none"
+                            src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/aabd8f50-973c-4d58-afe9-2b6520557da6.jpg"
+                            width="100%" height="350px" style="object-fit:cover; height: auto;"
+                            alt="Banner do Canon Rental, mostrando algumas imagens de Câmeras, lentes e estúdio.">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="rental">
+            <div class="container">
+                <div class="row row-flex">
+                    <div class="col-12">
+                        <h2>Aluguel de Equipamentos</h2>
+                    </div>
+                    <div class="col-12">
+                        <div class="box-content">
+                            <div class="description">
+                                <p>Experimente nosso serviço de locação de equipamentos fotográficos e tenha acesso a
+                                    câmeras DSLRs e Mirrorless, além de lentes RF e EF e acessórios de alta qualidade.
+                                    Com descontos progressivos, o preço da diária pode variar de acordo com os dias de
+                                    locação. </p>
+                                <p>Lembrando que por enquanto nosso serviço de locação está disponível apenas para
+                                    retirada e devolução dos equipamentos em mãos, na cidade de São Paulo. </p>
+                                <p>Confira nossa lista de equipamentos fotográficos! Disponíveis para locação. </p>
+                            </div>
+                            <div class="nav-category">
+                                <a onclick="openDslr()" class="menu-category menu-dslr active">Câmeras DSLR</a>
+                                <a onclick="openMirroless()" class="menu-category menu-mirrorless">Câmeras
+                                    Mirrorless</a>
+                                <a onclick="openEf()" class="menu-category menu-ef">Lentes EF</a>
+                                <a onclick="openRf()" class="menu-category menu-rf">Lentes RF</a>
+                                <a href="https://cloud.canondigital.com.br/canonrental/cinema" class="menu-category menu-cinema">Cinema & Broadcast</a>
+                                <a onclick="openPTZ()" class="menu-category menu-ptz">Câmeras PTZ</a>
+                                <!-- <a onclick="" class="menu-category">Acessórios</a> -->
+                            </div>
+                            <div class="product-box product-dslr">
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/dc8c1231-4383-4b2d-9422-1cd6636e4488.png"
+                                        alt="EOS 1DX MK III" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS 1DX MK III</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 20.1 MP, 20 FPS,
+                                            ISO 100-102400, 4K 60fps, Canon Log, 5,5K RAW, 2 slots de CF Express.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>649,90</span>
+                                            </div>
+                                        </div>
+                                        <!--<a href="" class="product-card-description-more" target="_blank">Veja mais informações</a>-->
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="3829C002"
+                                        data-nome="EOS 1DX MK III"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/dc8c1231-4383-4b2d-9422-1cd6636e4488.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/3b6dfef1-524b-43fa-9f80-152670856145.png"
+                                        alt="EOS 5DS" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS 5DS</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 50,6 MP, 5FPS,
+                                            ISO 100-6400, Full HD 30fps, slots de SD e compact flash.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>189,80</span>
+                                            </div>
+                                        </div>
+                                        <!--<a href="" class="product-card-description-more" target="_blank">Veja mais informações</a>-->
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="0581C002"
+                                        data-nome="EOS 5DS"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/3b6dfef1-524b-43fa-9f80-152670856145.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/ef044182-6bdf-498c-b0c1-1591e44e7687.png"
+                                        alt="EOS 5DSR" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS 5DSR</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 50,6 MP, 5FPS,
+                                            ISO 100-6400, Full HD 30fps, slots de SD e compact flash, filtro low pass.
+                                        </div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>189,80</span>
+                                            </div>
+                                        </div>
+                                        <!--<a href="" class="product-card-description-more" target="_blank">Veja mais informações</a>-->
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="0582C002"
+                                        data-nome="EOS 5DSR"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/ef044182-6bdf-498c-b0c1-1591e44e7687.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/a1d201b1-f76b-4c5a-9995-2c295641d787.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS 5D MK III</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 22.3 MP, 6FPS,
+                                            ISO 100-25600, Full HD 30fps, slots de Cfast e SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>203,99</span>
+                                            </div>
+                                        </div>
+                                        <!--<a href="" class="product-card-description-more" target="_blank">Veja mais informações</a>-->
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="5260B002"
+                                        data-nome="EOS 5D MK III"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/a1d201b1-f76b-4c5a-9995-2c295641d787.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/5e7e9e62-7bdd-4134-b747-c3322418f481.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS 5D MK IV</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 30.4MP, 7FPS,
+                                            ISO 100-32000, 4k 30fps, slots de Cfast e SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>374,85</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---linha-eos---dslr/eos-5d-mark-iv"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="1483C002"
+                                        data-nome="EOS 5D MK IV"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/5e7e9e62-7bdd-4134-b747-c3322418f481.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/473c85b0-f156-43ba-ba1b-c05cb920c354.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS 6D MK II</div>
+                                        <div class="product-card-description-info">Câmera Full Frame 26.2MP, 6.5 FPS,
+                                            ISO 100-40000, Full HD 60fps, slot de SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>179,85</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---linha-eos---dslr/eos-6d-mark-ii"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="1897C002"
+                                        data-nome="EOS 6 MK II"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/473c85b0-f156-43ba-ba1b-c05cb920c354.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/a38b98b1-ab9f-44c9-81e8-7790aae0d966.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS 7D MK II</div>
+                                        <div class="product-card-description-info">Câmera APSC de 20.2 MP, 10FPS, ISO
+                                            100-16000, Full HD 60fps, slots de compact flash e SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>125,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---linha-eos---dslr/eos-7d-mark-ii"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="9128B002"
+                                        data-nome="EOS 7D MK II"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/a38b98b1-ab9f-44c9-81e8-7790aae0d966.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                            </div>
+                            <div class="product-box product-mirrorless hide">
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/723ba652-15e3-4296-8834-5933f6722103.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS RP</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 26.2 MP, 5 FPS,
+                                            ISO 100-40000, 4K 25fps, slot de SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>199,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---linha-eos---mirrorless/eos-rp"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="3380C002"
+                                        data-nome="EOS RP"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/723ba652-15e3-4296-8834-5933f6722103.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/0e00ec65-9790-405d-bf2e-51f06c090b71.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS R</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 30.3MP, 8 FPS,
+                                            ISO 100-40000, 4K 30fps, slot de SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>279,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/cameras/eos-mirrorless/eos-r"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="3075C002"
+                                        data-nome="EOS R"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/0e00ec65-9790-405d-bf2e-51f06c090b71.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/80948d2f-d9ba-4a9a-b52a-8b975c9d4703.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS R8</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 24.2MP, 40 FPS
+                                            E. shutter, ISO 100-102400, 4K 60fps 10 bit, C log 3, Digital IS, slot de
+                                            SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>299,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/cameras/eos-mirrorless/eos-r8"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="5803C002"
+                                        data-nome="EOS R8"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/80948d2f-d9ba-4a9a-b52a-8b975c9d4703.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/a40c6dc6-21f3-481c-923c-0bdb01b69301.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS R7</div>
+                                        <div class="product-card-description-info">Câmera APSC de 32.5MP, 30 FPS E.
+                                            shutter, ISO 100-32000, 4K 60fps 10 bit, C log 3, IBIS, 2 slots SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>279,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/cameras/eos-mirrorless/eos-r7"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="5137C002"
+                                        data-nome="EOS R7"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/a40c6dc6-21f3-481c-923c-0bdb01b69301.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/35fa64d8-be81-4f09-939d-d1a8f378e53f.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS R6</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 20MP, 20 FPS E.
+                                            shutter, ISO 100-102400, 4K 60fps 10 bit, Canon log, IBIS, 2 slots SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>399,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---linha-eos---mirrorless/eos-r6"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="4082C002"
+                                        data-nome="EOS R6"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/35fa64d8-be81-4f09-939d-d1a8f378e53f.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/e57fa1cc-de8e-4367-9eda-71eaec2f25c0.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS R5</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 45MP, 20FPS E.
+                                            shutter, ISO 100-51200, 8K Raw 12 bit, C log 3, IBIS, slots de CF express e
+                                            SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>509,85</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---linha-eos---mirrorless/eos-r5"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="4147C002"
+                                        data-nome="EOS R5"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/e57fa1cc-de8e-4367-9eda-71eaec2f25c0.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/42a7c60e-0a76-4b8f-9750-105bbdd26bae.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EOS R3</div>
+                                        <div class="product-card-description-info">Câmera Full Frame de 24MP, 30FPS E.
+                                            shutter, ISO 100-102400, 6K RAW 12 bit, C log 3, IBIS, slots de CF express e
+                                            SD.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>824,85</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---linha-eos---mirrorless/eos-r3"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="4895C002"
+                                        data-nome="EOS R3"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/42a7c60e-0a76-4b8f-9750-105bbdd26bae.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                            </div>
+                            <div class="product-box product-ef hide">
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/8ed51141-a1d8-45da-a3a8-f71b179c5639.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 8-15MM F/4L FE</div>
+                                        <div class="product-card-description-info">Lente angular zoom - EF 8-15MM F/4L
+                                            Fisheye USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>249,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/zoom-grande-angular/ef-8-15mm-f4l-fisheye-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="4427B002"
+                                        data-nome="EF8-15 MM F4L FE"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/8ed51141-a1d8-45da-a3a8-f71b179c5639.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/1d592fab-dde6-4fe3-bcb7-98513d21015d.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 11-24MM F/4L USM</div>
+                                        <div class="product-card-description-info">Lente angular zoom - EF 11-24MM F/4L
+                                            USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>599,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/lentes-ef/ef-11-24mm-f4l-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="9520B002"
+                                        data-nome="EF11-24MM F/4L USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/1d592fab-dde6-4fe3-bcb7-98513d21015d.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/096131c2-b2aa-4004-aba8-bf3e28cfe2f6.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 14MM F/2.8L II USM</div>
+                                        <div class="product-card-description-info">Lente ultra angular - EF 14MM F/2.8L
+                                            II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>239,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/grande-angular/ef-14mm-f28l-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2045B003"
+                                        data-nome="EF14 F2.8L II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/096131c2-b2aa-4004-aba8-bf3e28cfe2f6.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/8e6f7ed8-c04c-4c47-80fe-1198ecc746a5.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 16-35MM F/4 L IS USM</div>
+                                        <div class="product-card-description-info">Lente angular zoom - EF 16-35MM F/4L
+                                            IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>259,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/zoom-grande-angular/ef-16-35mm-f4l-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="9518B002"
+                                        data-nome="EF16-35 F/4 L IS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/8e6f7ed8-c04c-4c47-80fe-1198ecc746a5.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <!-- <div class="product-card">
+                                        <img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/d701f65a-bb91-43c2-9aae-8d74c738bd2e.png" alt="" class="product-photo">
+                                        <div class="product-card-description">
+                                            <div class="product-card-description-title">EF 16-35MM F/2.8L II USM</div>
+                                            <div class="product-card-description-info">Lente angular zoom - EF 16-35MM F/2.8L II USM.</div>
+                                            <div class="product-card-description-price-box">
+                                                <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                                <div class="product-card-description-price-value">R$ <span>xx,xx</span></div>
+                                            </div>
+                                            <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/zoom-grande-angular/ef-16-35mm-f/28l-ii-usm" class="product-card-description-more" target="_blank">Veja mais informações</a>
+                                        </div>
+                                        <a class="product-card-cta" data-type="equipamentos" data-id="0573C003" data-nome="EF16-35 F2.8L II USM" data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/d701f65a-bb91-43c2-9aae-8d74c738bd2e.png" data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                    </div> -->
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/dc8dd8e7-5512-4621-8e68-ed267a2ac86f.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 16-35MM F/2.8L III USM</div>
+                                        <div class="product-card-description-info">Lente angular zoom - EF 16-35MM
+                                            F/2.8L III USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>419,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---lentes-eos---zoom-grande-angular/ef-16-35mm-f-28l-iii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="0573C002"
+                                        data-nome="EF16-35MM F/2.8L III USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/dc8dd8e7-5512-4621-8e68-ed267a2ac86f.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/819383d3-1b8c-4cec-8e39-1b3167bb919a.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 20MM F/2.8 USM</div>
+                                        <div class="product-card-description-info">Lente ultra angular - EF 20MM F/2.8
+                                            USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>119,60</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/grande-angular/ef-20mm-f/28-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2509A003"
+                                        data-nome="EF20 F2.8 USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/819383d3-1b8c-4cec-8e39-1b3167bb919a.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/c4e47743-2b1a-4d39-a4c6-8e7bf8666a06.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 24MM F/1.4L II USM</div>
+                                        <div class="product-card-description-info">Lente grande angular - EF 24MM F/1.4L
+                                            II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>309,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/grande-angular/ef-24mm-f/14l-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2750B002"
+                                        data-nome="EF24 F1.4L II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/c4e47743-2b1a-4d39-a4c6-8e7bf8666a06.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <!-- <div class="product-card">
+                                        <img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/0aaeea32-4d51-4c28-8388-16f043342c40.png" alt="" class="product-photo">
+                                        <div class="product-card-description">
+                                            <div class="product-card-description-title">EF 24-105MM F/4L IS USM</div>
+                                            <div class="product-card-description-info">Lente zoom normal - EF2 4-105MM F/4L IS USM.</div>
+                                            <div class="product-card-description-price-box">
+                                                <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                                <div class="product-card-description-price-value">R$ <span>xx,xx</span></div>
+                                            </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/zoom-normal/ef-24-105mm-f/4l-is-usm" class="product-card-description-more" target="_blank">Veja mais informações</a>
+                                        </div>
+                                        <a class="product-card-cta" data-type="equipamentos" data-id="2012C434" data-nome="EF24-105 F4L IS USM" data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/0aaeea32-4d51-4c28-8388-16f043342c40.png" data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                    </div> -->
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/8f46e70c-8640-44e4-b532-1a4ab84a07cd.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 24-105MM F/4L IS II USM</div>
+                                        <div class="product-card-description-info">Lente zoom normal - EF 24-105MM F/4L
+                                            IS II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>259,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---lentes-eos---zoom-normal/ef-24-105mm-f-4l-is-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="1380C002"
+                                        data-nome="EF24-105/4L IS II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/8f46e70c-8640-44e4-b532-1a4ab84a07cd.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/4680d069-1b21-4532-ae89-f909fc228923.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 24-70MM F/2.8L II USM</div>
+                                        <div class="product-card-description-info">Lente zoom normal - EF 24-70MM F/2.8L
+                                            II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>359,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/zoom-normal/ef-24-70mm-f28l-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="5175B002"
+                                        data-nome="EF24-70 F/2.8L II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/4680d069-1b21-4532-ae89-f909fc228923.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/a566d361-f3b4-4158-a3dd-91673d66082d.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 24-70MM F/4L IS USM</div>
+                                        <div class="product-card-description-info">Lente zoom normal - EF 24-70MM F/4L
+                                            IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>299,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/zoom-normal/ef-24-70mm-f4l-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="1483C143"
+                                        data-nome="EF24-70/4L IS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/a566d361-f3b4-4158-a3dd-91673d66082d.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <!-- <div class="product-card">
+                                        <img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/561847f0-6132-4b4a-8519-ab2595312916.png" alt="" class="product-photo">
+                                        <div class="product-card-description">
+                                            <div class="product-card-description-title">EF 28MM F/2.8 IS USM</div>
+                                            <div class="product-card-description-info">Lente grande angular - EF 28MM F/2.8 IS USM.</div>
+                                            <div class="product-card-description-price-box">
+                                                <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                                <div class="product-card-description-price-value">R$ <span>xx,00</span></div>
+                                            </div>
+                                            <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/grande-angular/ef-28mm-f28-is-usm" class="product-card-description-more" target="_blank">Veja mais informações</a>
+                                        </div>
+                                        <a class="product-card-cta" data-type="equipamentos" data-id="5179B003" data-nome="EF28 F2.8 IS USM" data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/561847f0-6132-4b4a-8519-ab2595312916.png" data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                    </div> -->
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/b77f5829-e0aa-4f8a-8cbc-61d477068a7b.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 35MM F/1.4L II USM</div>
+                                        <div class="product-card-description-info">Lente grande angular - EF 35MM F/1.4L
+                                            II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>399,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---lentes-eos---grande-angular/ef-35mm-f-14l-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="9523B002"
+                                        data-nome="EF35 F1.4L II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/b77f5829-e0aa-4f8a-8cbc-61d477068a7b.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/e3d7fe12-8fe5-478c-ac68-6521f1d8a4d2.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 35MM F/2 IS USM</div>
+                                        <div class="product-card-description-info">Lente grande angular - EF 35MM F/2 IS
+                                            USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>119,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/grande-angular/ef-35mm-f2-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="5178B002"
+                                        data-nome="EF35MM F/2 IS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/e3d7fe12-8fe5-478c-ac68-6521f1d8a4d2.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <!-- <div class="product-card">
+                                        <img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/0a6a479e-0425-4dd1-915f-b09fb60a7a3b.png" alt="" class="product-photo">
+                                        <div class="product-card-description">
+                                            <div class="product-card-description-title">EF 35MM F/1.4L USM</div>
+                                            <div class="product-card-description-info">Lente grande angular - EF 35MM F/1.4L USM.</div>
+                                            <div class="product-card-description-price-box">
+                                                <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                                <div class="product-card-description-price-value">R$ <span>xx,00</span></div>
+                                            </div>
+                                            <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---lentes-eos---grande-angular/ef-35mm-f-14l-ii-usm" class="product-card-description-more" target="_blank">Veja mais informações</a>
+                                        </div>
+                                        <a class="product-card-cta" data-type="equipamentos" data-id="9523B003" data-nome="EF35 F1.4L USM" data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/0a6a479e-0425-4dd1-915f-b09fb60a7a3b.png" data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                    </div> -->
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/b3d0ff86-1e43-4dfc-a176-1e7cb5ae4fc3.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 50MM F/1.2L USM</div>
+                                        <div class="product-card-description-info">Lente tipo fixa EF 50MM F/1.2L USM.
+                                        </div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>349,75</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/normal/ef-50mm-f/12l-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="1257B002"
+                                        data-nome="EF50 F1.2L USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/b3d0ff86-1e43-4dfc-a176-1e7cb5ae4fc3.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/aa2e6b10-14fc-493a-adf0-9fb3bc2627e2.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 70-200MM F/2.8LIS II</div>
+                                        <div class="product-card-description-info">Lente zoom telefoto - EF 70-200MM
+                                            F/2.8L IS II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>275,00</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/zoom-telefoto/ef-70-200mm-f28l-is-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2751B002"
+                                        data-nome="EF70-200 F2.8LIS II"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/aa2e6b10-14fc-493a-adf0-9fb3bc2627e2.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/9b1bcd3a-f364-4ce0-a26c-c971b84c2cf4.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 70-200MM F/2.8LIS III</div>
+                                        <div class="product-card-description-info">Lente zoom telefoto - EF 70-200MM
+                                            F/2.8L IS III USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>399,80</span>
+                                            </div>
+                                        </div>
+                                        <!--<a href="" class="product-card-description-more" target="_blank">Veja mais informações</a>-->
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="3044C002"
+                                        data-nome="EF70-200/2.8LIS III"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/9b1bcd3a-f364-4ce0-a26c-c971b84c2cf4.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/1edc113c-8a55-4d7f-90e4-a1177b48ac18.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 70-300MM F/4-5.6L IS USM</div>
+                                        <div class="product-card-description-info">Lente zoom telefoto - EF 70-300MM
+                                            F/4-5.6L IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>249,75</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/zoom-telefoto/ef-70-300mm-f4-56l-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="4426B002"
+                                        data-nome="EF70-300 F4-5.6L IS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/1edc113c-8a55-4d7f-90e4-a1177b48ac18.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/6a050bdb-345d-4672-b54e-43836e75fbe7.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 85MM F/1.2L II USM</div>
+                                        <div class="product-card-description-info">Lente fixa telefoto - EF 85MM F/1.2L
+                                            II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>399,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/normal/ef-85mm-f12l-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="1056B002"
+                                        data-nome="EF85 F1.2L II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/6a050bdb-345d-4672-b54e-43836e75fbe7.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <!-- <div class="product-card">
+                                        <img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/867136d0-ce19-46cb-91c8-760a1b99890c.png" alt="" class="product-photo">
+                                        <div class="product-card-description">
+                                            <div class="product-card-description-title">EF 100MM F/2.8 MACRO IS USM</div>
+                                            <div class="product-card-description-info">Lente macro - EF 100MM F/2.8 Macro USM.</div>
+                                            <div class="product-card-description-price-box">
+                                                <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                                <div class="product-card-description-price-value">R$ <span>219,80</span></div>
+                                            </div>
+                                            <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/macro/ef-100mm-f28-macro-usm" class="product-card-description-more" target="_blank">Veja mais informações</a>
+                                        </div>
+                                        <a class="product-card-cta" data-type="equipamentos" data-id="3554B002" data-nome="EF100 F2.8 MACRO IS USM" data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/867136d0-ce19-46cb-91c8-760a1b99890c.png" data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                    </div> -->
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/856a16d1-adc3-4829-8b04-44b85b990eb2.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 100MM F/2.8L MACRO IS USM</div>
+                                        <div class="product-card-description-info">Lente macro - EF 100MM F/2.8L Macro
+                                            IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>219,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/macro/ef-100mm-f/28l-macro-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="3554B002"
+                                        data-nome="EF100 F2.8L MACRO IS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/856a16d1-adc3-4829-8b04-44b85b990eb2.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <!-- <div class="product-card">
+                                        <img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/250b5ea4-34e2-43b8-a360-20a0e8e8c139.png" alt="" class="product-photo">
+                                        <div class="product-card-description">
+                                            <div class="product-card-description-title">EF 100MM F/2 USM</div>
+                                            <div class="product-card-description-info">Lente fixa telefoto - EF 100MM F/2 USM.</div>
+                                            <div class="product-card-description-price-box">
+                                                <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                                <div class="product-card-description-price-value">R$ <span>xx,00</span></div>
+                                            </div>
+                                            <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/normal/ef-100mm-f/2-usm" class="product-card-description-more" target="_blank">Veja mais informações</a>
+                                        </div>
+                                        <a class="product-card-cta" data-type="equipamentos" data-id="2518A003" data-nome="EF100 F2 USM" data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/250b5ea4-34e2-43b8-a360-20a0e8e8c139.png" data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                    </div> -->
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/858fd388-69c9-4df8-b91d-0ac8a47294de.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 100-400MM F/4.5-5.6L IS II USM
+                                        </div>
+                                        <div class="product-card-description-info">Lente zoom telefoto - EF 100-400MM
+                                            F/4.5-5.6L IS II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>479,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/normal/ef-100mm-f/2-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="9524B002"
+                                        data-nome="EF100-400 F/4.5-5.6L IS II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/858fd388-69c9-4df8-b91d-0ac8a47294de.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/7b3023cf-e650-4e7f-994b-e1055e580cf1.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 135MM F/2L USM</div>
+                                        <div class="product-card-description-info">Lente telefoto - EF 135MM F/2L USM.
+                                        </div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>240,00</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/telefoto/ef-135mm-f2l-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2520A004"
+                                        data-nome="EF135MM F/2L USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/7b3023cf-e650-4e7f-994b-e1055e580cf1.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/00e2c21e-f976-4a0e-9952-383cd580e8a5.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 180MM F/3.5L MACRO USM</div>
+                                        <div class="product-card-description-info">Lente fixa macro - EF 180MM F/3.5L
+                                            Macro USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>259,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/macro/ef-180mm-f35l-macro-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2539A007"
+                                        data-nome="EF180 F3.5L MACRO USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/00e2c21e-f976-4a0e-9952-383cd580e8a5.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/af19d3cc-4923-4023-9bdf-7164128673fd.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 200MM F/2.8L II USM</div>
+                                        <div class="product-card-description-info">Lente fixa telefoto - EF 200MM F/2.8L
+                                            II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>560,00</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/telefoto/ef-200mm-f28l-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2529A004"
+                                        data-nome="EF200 F2.8L II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/af19d3cc-4923-4023-9bdf-7164128673fd.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/dfafff50-aa98-4f2f-ad4f-a787e44e2228.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title" style="font-size: 19px;">EF 200-400MM F/4L IS USM EXT 1.4X
+                                        </div>
+                                        <div class="product-card-description-info">Lente zoom telefoto - EF 200-400MM
+                                            F/4L IS USM Ext 1.4x.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>1.109,90</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/super-telefoto/ef-200-400mm-f4l-is-usm-extender-14x"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="5176B002"
+                                        data-nome="EF200-400 F/4L IS USM EXT 1.4X"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/dfafff50-aa98-4f2f-ad4f-a787e44e2228.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/4991c8d4-f29b-4a59-8ed8-af5200d1b756.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 300MM F/2.8LIS II USM</div>
+                                        <div class="product-card-description-info">Lente telefoto - EF 300MM F/2.8L IS
+                                            II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>609,90</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/telefoto/ef-300mm-f28l-is-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="4411B002"
+                                        data-nome="EF300 F2.8LIS II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/4991c8d4-f29b-4a59-8ed8-af5200d1b756.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <!-- <div class="product-card">
+                                        <img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/3a468ce3-d3cd-4079-a41c-af503d52f062.png" alt="" class="product-photo">
+                                        <div class="product-card-description">
+                                            <div class="product-card-description-title">EF 300MM F/4L IS USM</div>
+                                            <div class="product-card-description-info">Lente telefoto - EF 300MM F/4L IS USM.</div>
+                                            <div class="product-card-description-price-box">
+                                                <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                                <div class="product-card-description-price-value">R$ <span>xx,00</span></div>
+                                            </div>
+                                            <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/telefoto/ef-300mm-f/4l-is-usm" class="product-card-description-more" target="_blank">Veja mais informações</a>
+                                        </div>
+                                        <a class="product-card-cta" data-type="equipamentos" data-id="2530A004" data-nome="EF300 F4L IS USM" data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/3a468ce3-d3cd-4079-a41c-af503d52f062.png" data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                    </div> -->
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/92922627-c5f4-486a-ae84-63d6c8fc5458.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 400MM F/2.8LIS II USM</div>
+                                        <div class="product-card-description-info">Lente super telefoto - EF 400MM
+                                            F/2.8L IS II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>899,90</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---lentes-eos---super-telefoto/ef-400mm-f-28l-is-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="3045C002"
+                                        data-nome="EF400 F2.8LIS II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/92922627-c5f4-486a-ae84-63d6c8fc5458.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/c321318e-99fd-411d-b060-ec9d4e75453a.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 500MM F/4L IS II USM</div>
+                                        <div class="product-card-description-info">Lente super telefoto - EF500MM F/4L
+                                            IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>899,90</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/super-telefoto/ef-500mm-f4l-is-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="5124B002"
+                                        data-nome="EF 500 F4LIS II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/c321318e-99fd-411d-b060-ec9d4e75453a.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/677a5c68-5fd6-42b9-9d01-acdbf162b4fd.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 600MM F/4L IS II USM</div>
+                                        <div class="product-card-description-info">Lente super telefoto - EF 600MM F/4L
+                                            IS II USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>899,90</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce---cameras---lentes-eos---super-telefoto/ef-600mm-f-4l-is-ii-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="3329C002"
+                                        data-nome="EF600 F4LIS II USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/677a5c68-5fd6-42b9-9d01-acdbf162b4fd.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/6b849fcb-540c-4cc6-9bf9-a77bcb28a1ce.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">EF 800MM F/5.6LIS USM</div>
+                                        <div class="product-card-description-info">Lente super telefoto - EF 800MM
+                                            F/5.6L IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>949,90</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/produtos/produtos-para-voce/cameras/lentes-eos/super-telefoto/ef-800mm-f/56l-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2746B002"
+                                        data-nome="EF800 F5.6LIS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/6b849fcb-540c-4cc6-9bf9-a77bcb28a1ce.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                            </div>
+                            <div class="product-box product-rf hide">
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/6a431d15-e50b-4faa-93ee-814dd8076e54.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">RF 16MM F/2.8 STM</div>
+                                        <div class="product-card-description-info">Lente ultra angular - RF 16MM F/2.8
+                                            STM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>124,50</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/lentes-e-outros/lentes-rf/rf-16mm-f/28-stm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="5051C002"
+                                        data-nome="RF 16MM F2.8 STM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/6a431d15-e50b-4faa-93ee-814dd8076e54.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/dc71879c-2061-4780-bf15-582ad15a44fb.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">RF 24-70MM F/2.8L IS USM</div>
+                                        <div class="product-card-description-info">Lente zoom normal - RF 24-70MM F/2.8
+                                            L IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>439,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/lentes-e-outros/lentes-rf/rf-24-70mm-f/28-l-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="3680C002"
+                                        data-nome="RF 24-70MM f/2.8L IS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/dc71879c-2061-4780-bf15-582ad15a44fb.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/346e4ba2-e085-4966-86f8-c87fbc28613a.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">RF 24-105MM F/4-7.1 IS STM</div>
+                                        <div class="product-card-description-info">Lente zoom normal - RF 24-105MM
+                                            F/4-7.1 IS STM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>119,70</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/lentes-e-outros/lentes-rf/rf-24-105mm-f/4-71-is-stm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="4111C002"
+                                        data-nome="RF 24-105MM F/4-7.1 IS STM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/346e4ba2-e085-4966-86f8-c87fbc28613a.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/13d09009-095e-4a99-9b85-2049e9f23a01.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">RF 24-105MM F/4 L IS USM</div>
+                                        <div class="product-card-description-info">Lente zoom normal - RF 24-105MM F/4 L
+                                            IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>194,85</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/lentes-e-outros/lentes-rf/rf-24-105mm-f/4l-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2963C002"
+                                        data-nome="RF 24-105MM F4 L IS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/13d09009-095e-4a99-9b85-2049e9f23a01.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/397ede53-13e2-482a-928d-2b01f8f850da.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">RF 28-70MM F/2L USM</div>
+                                        <div class="product-card-description-info">Lente zoom normal - RF 28-70MM F/2 L
+                                            USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>579,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/lentes-e-outros/lentes-rf/rf-28-70mm-f/2l-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2965C002"
+                                        data-nome="RF 28-70MM F2L USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/397ede53-13e2-482a-928d-2b01f8f850da.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/301176d4-ca88-4642-acbb-b247a3efdef8.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">RF 50MM F/1.2 L USM</div>
+                                        <div class="product-card-description-info">Lente fixa telefoto - RF 50MM F/1.2 L
+                                            USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>459,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/lentes-e-outros/lentes-rf/rf-50mm-f/12-l-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="2959C002"
+                                        data-nome="RF 50MM F1.2 L USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/301176d4-ca88-4642-acbb-b247a3efdef8.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/ad6881eb-41ff-4ede-ba6e-684aa09673c5.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">RF 85MM F/1.2L USM</div>
+                                        <div class="product-card-description-info">Lente fixa telefoto - RF 85MM F/1.2 L
+                                            USM DS.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>519,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/lentes-e-outros/lentes-rf/rf-85mm-f/12-l-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="3447C002"
+                                        data-nome="RF 85MM f/1.2L USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/ad6881eb-41ff-4ede-ba6e-684aa09673c5.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/84203cff-1d1f-47b0-8657-083a21de4c35.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">RF 100MM F/2.8 L MACRO IS USM</div>
+                                        <div class="product-card-description-info">Lente zoom fixa - RF 100MM F/2.8 L
+                                            MACRO IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>219,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/lentes-e-outros/lentes-rf/rf-100mm-f/28-l-macro-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="4514C002"
+                                        data-nome="RF 100MM F2.8 L MACRO IS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/84203cff-1d1f-47b0-8657-083a21de4c35.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/2d2c119b-2ad5-4394-b36b-a27561464cad.png"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">RF 70-200MM F/2.8L IS USM</div>
+                                        <div class="product-card-description-info">Lente zoom telefoto - RF 70-200MM
+                                            F/2.8 L IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>519,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/lentes-e-outros/lentes-rf/rf-70-200mm-f/28-l-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="3792C002"
+                                        data-nome="RF 70-200MM f/2.8L IS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/2d2c119b-2ad5-4394-b36b-a27561464cad.png"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                                <div class="product-card">
+                                    <img loading="lazy"
+                                        src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/7d5621a4-25a6-4e64-8ac6-2c5016762edf.jpg"
+                                        alt="" class="product-photo">
+                                    <div class="product-card-description">
+                                        <div class="product-card-description-title">RF 100-500MM F/4.5-7.1 L IS USM
+                                        </div>
+                                        <div class="product-card-description-info">Lente super telefoto - RF 100-500MM
+                                            F/4.5-7.1 L IS USM.</div>
+                                        <div class="product-card-description-price-box">
+                                            <div class="product-card-description-price-info">Diárias a partir de:</div>
+                                            <div class="product-card-description-price-value">R$ <span>539,80</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://www.canon.com.br/para-voce/lentes-e-outros/lentes-rf/rf-100-500mm-f/45-71-l-is-usm"
+                                            class="product-card-description-more" target="_blank">Veja mais
+                                            informações</a>
+                                    </div>
+                                    <a class="product-card-cta" data-type="equipamentos" data-id="4112C002"
+                                        data-nome="RF100-500MM F4.5-7.1 L IS USM"
+                                        data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/7d5621a4-25a6-4e64-8ac6-2c5016762edf.jpg"
+                                        data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+                                </div>
+                            </div>
+														<div class="product-box product-ptz hide">
+															<div class="product-card">
+																	<img loading="lazy"
+																			src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/e2eca122-3e3c-4255-87d0-95d4d1d0cca5.jpg"
+																			alt="" class="product-photo">
+																	<div class="product-card-description">
+																			<div class="product-card-description-title">RC-IP100</div>
+																			<div class="product-card-description-info">O controlador RC-IP100 da Canon oferece controle IP para até 99 câmeras Canon PTZ. Tela de 7“ com diversos funções de controle nas Câmeras.</div>
+																			<div class="product-card-description-price-box">
+																					<div class="product-card-description-price-info">Diárias a partir de:</div>
+																					<div class="product-card-description-price-value">R$ <span>399,85</span>
+																					</div>
+																			</div>
+																			<a href="https://www.canon.com.br/produtos/cine---provideo---bctv---ptz---controladores/rc-ip100"
+																					class="product-card-description-more" target="_blank">Veja mais
+																					informações</a>
+																	</div>
+																	<a class="product-card-cta" data-type="equipamentos" data-id="5231C004"
+																			data-nome="RC-IP100"
+																			data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/e2eca122-3e3c-4255-87d0-95d4d1d0cca5.jpg"
+																			data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+															</div>
+															<div class="product-card">
+																	<img loading="lazy"
+																			src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/79048226-7189-4ee7-92b9-1cfdc04e4e9f.jpg"
+																			alt="" class="product-photo">
+																	<div class="product-card-description">
+																			<div class="product-card-description-title">CR-N500</div>
+																			<div class="product-card-description-info">Gravações em 4K e HD com a combinação de um sensor CMOS de 1" e um processador de imagem DIGIC DV 6 - 2 XLR e Zoom de 15 vezes.</div>
+																			<div class="product-card-description-price-box">
+																					<div class="product-card-description-price-info">Diárias a partir de:</div>
+																					<div class="product-card-description-price-value">R$ <span>764,85</span>
+																					</div>
+																			</div>
+																			<a href="https://www.canon.com.br/produtos/cine---provideo---bctv---ptz---cameras/cr-n500"
+																					class="product-card-description-more" target="_blank">Veja mais
+																					informações</a>
+																	</div>
+																	<a class="product-card-cta" data-type="equipamentos" data-id="4839C001"
+																			data-nome="CR-N500"
+																			data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/79048226-7189-4ee7-92b9-1cfdc04e4e9f.jpg"
+																			data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+															</div>
+															<div class="product-card">
+																	<img loading="lazy"
+																			src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/c1780dd5-c1e5-49e6-b20b-a8cc572f0ecc.jpg"
+																			alt="" class="product-photo">
+																	<div class="product-card-description">
+																			<div class="product-card-description-title">CR-N300</div>
+																			<div class="product-card-description-info">Gravações em 4K e HD com a combinação de um sensor CMOS de 1.2/3" e um processador de imagem DIGIC DV 6 e Zoom de 20 vezes.</div>
+																			<div class="product-card-description-price-box">
+																					<div class="product-card-description-price-info">Diárias a partir de:</div>
+																					<div class="product-card-description-price-value">R$ <span>459,85</span>
+																					</div>
+																			</div>
+																			<a href="https://www.canon.com.br/produtos/cine---provideo---bctv---ptz---cameras/cr-n300"
+																					class="product-card-description-more" target="_blank">Veja mais
+																					informações</a>
+																	</div>
+																	<a class="product-card-cta" data-type="equipamentos" data-id="5157C001"
+																			data-nome="CR-N300"
+																			data-image="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/c1780dd5-c1e5-49e6-b20b-a8cc572f0ecc.jpg"
+																			data-bs-toggle="modal" data-bs-target="#itenAddCart">Adicionar ao Orçamento</a>
+															</div>
+													</div>
+
+                            <script>
+                                const openDslr = () => {
+                                    event.preventDefault()
+                                    document.querySelector('.product-dslr').classList.remove('hide')
+                                    document.querySelector('.product-mirrorless').classList.add('hide')
+                                    document.querySelector('.product-ef').classList.add('hide')
+                                    document.querySelector('.product-rf').classList.add('hide')
+                                    document.querySelector('.product-ptz').classList.add('hide')
+
+                                    document.querySelector('.menu-dslr').classList.add('active')
+                                    document.querySelector('.menu-mirrorless').classList.remove('active')
+                                    document.querySelector('.menu-ef').classList.remove('active')
+                                    document.querySelector('.menu-rf').classList.remove('active')
+                                    document.querySelector('.menu-ptz').classList.remove('active')
+                                }
+
+                                const openMirroless = () => {
+                                    event.preventDefault()
+                                    document.querySelector('.product-dslr').classList.add('hide')
+                                    document.querySelector('.product-mirrorless').classList.remove('hide')
+                                    document.querySelector('.product-ef').classList.add('hide')
+                                    document.querySelector('.product-rf').classList.add('hide')
+                                    document.querySelector('.product-ptz').classList.add('hide')
+
+                                    document.querySelector('.menu-dslr').classList.remove('active')
+                                    document.querySelector('.menu-mirrorless').classList.add('active')
+                                    document.querySelector('.menu-ef').classList.remove('active')
+                                    document.querySelector('.menu-rf').classList.remove('active')
+                                    document.querySelector('.menu-ptz').classList.remove('active')
+                                }
+
+                                const openEf = () => {
+                                    event.preventDefault()
+                                    document.querySelector('.product-dslr').classList.add('hide')
+                                    document.querySelector('.product-mirrorless').classList.add('hide')
+                                    document.querySelector('.product-ef').classList.remove('hide')
+                                    document.querySelector('.product-rf').classList.add('hide')
+                                    document.querySelector('.product-ptz').classList.add('hide')
+
+                                    document.querySelector('.menu-dslr').classList.remove('active')
+                                    document.querySelector('.menu-mirrorless').classList.remove('active')
+                                    document.querySelector('.menu-ef').classList.add('active')
+                                    document.querySelector('.menu-rf').classList.remove('active')
+                                    document.querySelector('.menu-ptz').classList.remove('active')
+                                }
+
+                                const openRf = () => {
+                                    event.preventDefault()
+                                    document.querySelector('.product-dslr').classList.add('hide')
+                                    document.querySelector('.product-mirrorless').classList.add('hide')
+                                    document.querySelector('.product-ef').classList.add('hide')
+                                    document.querySelector('.product-rf').classList.remove('hide')
+                                    document.querySelector('.product-ptz').classList.add('hide')
+
+                                    document.querySelector('.menu-dslr').classList.remove('active')
+                                    document.querySelector('.menu-mirrorless').classList.remove('active')
+                                    document.querySelector('.menu-ef').classList.remove('active')
+                                    document.querySelector('.menu-rf').classList.add('active')
+                                    document.querySelector('.menu-ptz').classList.remove('active')
+                                }
+
+																const openPTZ = () => {
+                                    event.preventDefault()
+                                    document.querySelector('.product-dslr').classList.add('hide')
+                                    document.querySelector('.product-mirrorless').classList.add('hide')
+                                    document.querySelector('.product-ef').classList.add('hide')
+                                    document.querySelector('.product-rf').classList.add('hide')
+                                    document.querySelector('.product-ptz').classList.remove('hide')
+
+                                    document.querySelector('.menu-dslr').classList.remove('active')
+                                    document.querySelector('.menu-mirrorless').classList.remove('active')
+                                    document.querySelector('.menu-ef').classList.remove('active')
+                                    document.querySelector('.menu-rf').classList.remove('active')
+                                    document.querySelector('.menu-ptz').classList.add('active')
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="itenAddCart" tabindex="-1" aria-labelledby="itenAddCartLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="itenAddCartLabel">Este produto foi adicionado com sucesso:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="content">
+                        <div class="products added">
+                            <img class="modal_product" id="modal_product_image" src="">
+                            <div class="modal_product_name"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="https://cloud.canondigital.com.br/canonrental/orcamento" type="button"
+                        class="btn btn-secondary">Concluir pedido</a>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Adicionar mais itens ao
+                        pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+		<section id="footer">
+			<style>
+				.footerLogo {
+					display: flex;
+					align-items: center;
+					gap: 16px;
+					text-align: center;
+					flex-direction: column;
+					padding: 20px 0 10px;
+				}
+
+				@media (min-width: 768px) {
+					.footerLogo {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						gap: 32px;
+						text-align: left;
+						flex-direction: row;
+					}
+				}
+			</style>
+			<div class="container">
+				<div class="row row-flex" style="display: flex; align-items: center;">
+					<div class="col-12 footerLogo">
+						<div class="divLogo"><img src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/92af1948-fd4b-4b4f-a542-b74b92ad99ae.png" width="100%" style="max-width: 150px;"></div>
+						<div class="divDados"><span>CANON DO BRASIL INDÚSTRIA E COMÉRCIO Ltda.</span><br>
+							<span style="font-weight: 100;">CNPJ: 46.266.771/0001-26</span><br>
+							<span style="font-weight: 100;">Inscrição Estadual: 145.145.151.111</span>
+							<!-- <br> <span style="font-weight: 100;">Endereço: Av. do Café, 277 - Torre B - 6° Andar - Vila Guarani</span>-->
+							<span style="font-weight: 100;"><a href="https://canonbrasil-privacy.my.onetrust.com/webform/ff2f82a5-84f4-4d08-8bff-1ee75db63d1e/6399d342-9d43-45d5-8c45-e65601f034de" target="_blank" style="color: #fff; text-decoration: underline; display: block; margin-top: 10px; font-size: 12px;">LGPD - Exerça seus direitos.</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+    <script type="text/javascript"
+        src="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/rental/addCart.js"></script>
+    <script type="text/javascript"
+        src="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/rental/refreshItens.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

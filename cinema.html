@@ -1,0 +1,950 @@
+<!doctype html>
+<!-- %%[ set @url = requestparameter('pageurl') ]%% -->
+<html lang="pt_BR">
+
+	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src=https://www.googletagmanager.com/gtag/js?id=G-9PP5WK43LZ></script>
+		<script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-9PP5WK43LZ'); </script>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/canon-fav.ico" type="image/x-icon">
+		<!-- Bootstrap CSS -->
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.11.0.css" type="text/css" media="all">
+		<title>Canon Rental - Cinema & Broadcast</title>
+		<style>
+			.col-12.footer-text {
+				line-height: normal;
+				font-weight: 400;
+				min-height: 70px;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				padding-top: 7px;
+				font-size: 12px;
+			}
+
+			* {
+				font-family: 'Montserrat', sans-serif;
+			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			.hide {
+				display: none !important;
+			}
+
+			.navbar {
+				padding: 32px 12px 8px;
+			}
+
+			/* Ínicio Navbar */
+			nav {
+				font-weight: 600;
+			}
+
+			.bg-light {
+				background-color: #ffffff !important;
+			}
+
+			.bag-cicle {
+				left: -6px;
+				margin-top: 5px;
+				width: 25px;
+				height: 25px;
+				background-color: #cc0000;
+				border-radius: 15px;
+				font-size: 12px;
+				color: #fff;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 400;
+				position: relative;
+			}
+
+			.offcanvas-header .btn-close {
+				background-color: #fff;
+			}
+
+			.offcanvas-end {
+				width: 300px;
+			}
+
+			.offcanvas-header {
+				justify-content: flex-end;
+			}
+
+			.fixed-top {
+				padding: 40px 24px;
+				box-shadow: 0px 0px 12px -4px rgba(0, 0, 0, 0.25);
+				padding: 32px 24px;
+			}
+
+			.offcanvas-body {
+				margin-top: -60px;
+			}
+
+			.menuMob {
+				display: flex;
+				gap: 16px;
+			}
+
+			.navbar-light .navbar-nav .nav-link.active,
+			.navbar-light .navbar-nav .show>.nav-link {
+				color: #cc0000;
+			}
+
+			.dropdown-menu-dark {
+				background-color: #eeeeee;
+			}
+
+			.dropdown-menu-dark .dropdown-item {
+				color: #2f2f2f;
+			}
+
+			.dropdown-menu-dark .dropdown-item:focus,
+			.dropdown-menu-dark .dropdown-item:hover {
+				color: #cc0000;
+				background-color: inherit;
+			}
+
+			@media (max-width: 992px) {
+
+				.container,
+				.container-md,
+				.container-sm {
+					max-width: 95vw;
+				}
+			}
+
+			@media (min-width: 992px) {
+				.bag-cicle {
+					left: -6px;
+					margin-top: 5px;
+					width: 25px;
+					height: 25px;
+					background-color: #cc0000;
+					border-radius: 15px;
+					font-size: 12px;
+					color: #fff;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-weight: 400;
+					position: relative;
+				}
+
+				.navbar>.container,
+				.navbar>.container-fluid,
+				.navbar>.container-lg,
+				.navbar>.container-md,
+				.navbar>.container-sm,
+				.navbar>.container-xl,
+				.navbar>.container-xxl {
+					display: flex;
+					flex-wrap: inherit;
+					align-items: center;
+					justify-content: flex-start;
+				}
+
+				.navbar-toggler:focus {
+					box-shadow: 0 0 0 0;
+				}
+
+				.navbar-light .navbar-nav .nav-link:focus,
+				.navbar-light .navbar-nav .nav-link:hover {
+					color: rgb(0 0 0 / 90%);
+				}
+
+				.menu-desk {
+					display: flex;
+					justify-content: space-between;
+					width: 100%;
+					padding-left: 24px;
+				}
+
+				li.nav-item {
+					padding: 0;
+					font-size: 14px;
+				}
+			}
+
+			@media (min-width: 768px) {
+				.offset-md-1 {
+					margin-left: 4.33333333%;
+				}
+
+				.col-md-10 {
+					flex: 0 0 auto;
+					width: 90.333333%;
+				}
+			}
+
+			/* Final Navbar */
+
+			/* Banner */
+			.banner {
+				margin: 16px 0;
+			}
+
+			/* Banner */
+
+			main {
+				display: flex;
+				flex-direction: column;
+				gap: 64px;
+			}
+
+			h2 {
+				font-size: 20px;
+				font-weight: 600;
+				text-transform: uppercase;
+				color: #cc0000;
+				margin: 16px 0;
+				letter-spacing: -1px;
+			}
+
+			.box-content {
+				padding: 24px 32px;
+				background-color: #f1f1f1;
+				justify-content: center;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.box-content-card {
+				display: flex;
+				padding: 24px 32px;
+				background-color: #f1f1f1;
+				gap: 16px;
+				justify-content: center;
+				flex-direction: column;
+			}
+
+			.card-item {
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				position: relative;
+			}
+
+			.desc-card {
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				background-color: #cc0000;
+				color: #fff;
+				padding: 10px 50px 10px 15px;
+				border-radius: 0 70px 0 0;
+			}
+
+			.home-card-link:hover {
+				transform: scale(1.02);
+			}
+
+			.product-box {
+				margin: 32px 0;
+				display: flex;
+				gap: 24px 8px;
+				flex-wrap: wrap;
+				justify-content: left;
+			}
+
+			img.product-photo {
+				border-radius: 10px 10px 0 0;
+				height: 200px;
+				object-fit: cover;
+				object-position: top;
+				background-color: #FCFCFC
+			}
+
+			.nav-category {
+				margin: 32px 0 16px;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+			}
+
+			a.menu-category {
+				background-color: #383838;
+				color: #fff;
+				padding: 8px 16px;
+				text-decoration: none;
+				opacity: 0.6;
+				cursor: pointer;
+			}
+
+			a.menu-category.active {
+				opacity: 1;
+			}
+
+			a.menu-category:hover {
+				opacity: 1;
+			}
+
+			.product-card-description {
+				padding: 16px 32px;
+				background-color: #FCFCFC;
+				min-height: 300px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			.product-card-cta {
+				background-color: #cc0000;
+				text-align: center;
+				padding: 8px 16px;
+				border-radius: 0 0 10px 10px;
+				color: #fff;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+			.product-card-cta:hover {
+				background-color: #8D0F0F;
+				color: #fff;
+			}
+
+			.product-card-description-title {
+				font-weight: 600;
+				font-size: 24px;
+			}
+
+			.product-card-description-info {
+				margin: 8px 0;
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 19px;
+			}
+
+			.product-card-description-price-info {
+				font-size: 16px;
+				line-height: 25px;
+				letter-spacing: 0.4px;
+				margin-top: 16px;
+			}
+
+			.product-card-description-price-value {
+				font-style: normal;
+				font-weight: 600;
+				font-size: 20px;
+				line-height: 36px;
+				color: #cc0000;
+				margin-top: 4px;
+			}
+
+			.product-card-description-price-value span {
+				font-size: 32px;
+			}
+
+			.product-card-description-more {
+				font-weight: 300;
+				font-size: 13px;
+				line-height: 13px;
+				text-decoration-line: underline;
+				color: #5B5B5B;
+				margin-top: 12px;
+				display: block;
+			}
+
+			.product-card-description-more:hover {
+				color: #000000;
+			}
+
+			@media (min-width: 992px) {
+				.box-content-card {
+					flex-direction: row;
+				}
+
+				.card-item {
+					display: flex;
+					justify-content: center;
+					flex-direction: column;
+					position: relative;
+				}
+
+				.desc-card {
+					position: absolute;
+					bottom: 0px;
+					left: 0px;
+					background-color: #cc0000;
+					color: #fff;
+					padding: 10px 50px 10px 15px;
+					border-radius: 0 70px 0 0;
+				}
+
+				.home-card-link:hover {
+					transform: scale(1.02);
+				}
+			}
+
+			.product-card {
+				display: flex;
+				flex-direction: column;
+				width: 99%;
+			}
+
+			@media (min-width: 680px) {
+				.product-card-description-title {
+					font-size: 20px;
+				}
+
+				.product-card {
+					width: 48.3%;
+				}
+			}
+
+			@media (min-width: 921px) {
+				.product-card-description-title {
+					font-size: 20px;
+				}
+
+				.product-card {
+					width: 257px;
+				}
+			}
+
+			@media (min-width: 993px) {
+				.product-card-description-title {
+					font-size: 24px;
+				}
+
+				.product-card {
+					width: 285px;
+				}
+			}
+
+			@media (min-width: 1200px) {
+				.product-card {
+					width: 345px;
+				}
+			}
+
+			@media (min-width: 1400px) {
+				.product-card {
+					width: 299px;
+				}
+			}
+
+			a.btn-orcamento {
+				background-color: #cc0000;
+				color: #fff;
+				padding: 12px 24px;
+				margin: 8px 0 16px;
+				display: inline-block;
+				border-radius: 10px;
+				text-decoration: none;
+			}
+
+			a.btn-orcamento:hover {
+				background-color: #8D0F0F;
+			}
+
+			.galery {
+				display: flex;
+				gap: 16px;
+				margin-top: 36px;
+				flex-direction: column;
+			}
+
+			img.galery-photo-item {
+				width: 100%;
+			}
+
+			.galery-photo {
+				width: 100%;
+			}
+
+			@media (min-width: 650px) {
+				.galery-photo {
+					width: 48%;
+				}
+			}
+
+			@media (min-width: 993px) {
+				.galery-photo {
+					width: 428px;
+				}
+			}
+
+			@media (min-width: 1200px) {
+				.galery-photo {
+					width: 340px;
+				}
+			}
+
+			@media (min-width: 1400px) {
+				.galery-photo {
+					width: 400px;
+				}
+			}
+
+			@media (min-width: 650px) {
+				.galery {
+					flex-direction: row;
+					flex-wrap: wrap;
+					display: flex;
+					gap: 16px;
+				}
+			}
+
+
+			.accordion-button:not(.collapsed) {
+				color: #000000;
+				background-color: #d7d7d7;
+				box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+			}
+
+			/* Footer */
+			#footer {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 16px 0;
+				text-align: center;
+				background-color: #434343;
+				color: #fff;
+				position: relative;
+				bottom: 0;
+				width: 100%;
+				font-weight: 600;
+				margin-top: 50px;
+			}
+
+			/* Footer */
+
+			.products {
+				display: flex;
+				align-items: center;
+				gap: 24px;
+			}
+
+			img.modal_product {
+				width: 50%;
+				max-width: 250px;
+			}
+
+			.modal-content {
+				width: 97%;
+				margin: auto;
+			}
+
+			form {
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+			}
+
+			.inputGroup {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 16px;
+				margin-top: 8px;
+			}
+
+			h3.heading-form {
+				font-size: 22px;
+				font-weight: 600;
+				margin-top: 24px;
+			}
+
+			h4.heading-form {
+				font-size: 16px;
+				font-weight: 600;
+				margin-top: 16px;
+			}
+
+			.input-item {
+				width: 100%;
+			}
+
+			.dataBox {
+				gap: 16px 0px;
+			}
+
+			@media (min-width: 992px) {
+				.input-item {
+					width: 45%;
+				}
+			}
+
+			.inp-options {
+				display: flex;
+				gap: 16px;
+				margin: 8px 0;
+			}
+
+			form button.btn.btn-primary {
+				margin-top: 32px;
+			}
+
+
+			.card-registration .select-input.form-control[readonly]:not([disabled]) {
+				font-size: 1rem;
+				line-height: 2.15;
+				padding-left: .75em;
+				padding-right: .75em;
+			}
+
+			.card-registration .select-arrow {
+				top: 13px;
+			}
+
+			.bg-grey {
+				background-color: #eae8e8;
+			}
+
+
+			@media (min-width: 992px) {
+				.card-registration-2 .bg-grey {
+					border-top-right-radius: 16px;
+					border-bottom-right-radius: 16px;
+				}
+			}
+
+			@media (max-width: 991px) {
+				.card-registration-2 .bg-grey {
+					border-bottom-left-radius: 16px;
+					border-bottom-right-radius: 16px;
+				}
+			}
+
+			.removeBtn {
+				display: flex;
+				justify-content: center;
+			}
+
+			input#form1 {
+				text-align: center;
+			}
+
+			.btn-primary {
+				color: #fff;
+				background-color: #cc0000;
+				border-color: #cc0000;
+				border-radius: 0.25rem;
+				max-width: 400px;
+			}
+
+			.btn-primary:hover {
+				background-color: #8D0F0F;
+				border: 1px solid #8D0F0F;
+			}
+
+			.form-check-input:checked {
+				background-color: #cc0000;
+				border-color: #cc0000;
+			}
+
+			.form-check-input:focus {
+				border-color: #cc0000;
+				outline: 0;
+				box-shadow: #cc000054
+			}
+
+			.form-control:focus {
+				color: #212529;
+				background-color: #fff;
+				border-color: #cc0000;
+				outline: 0;
+				box-shadow: 0 0 0 0.25rem rgba(253, 49, 13, 0.25);
+			}
+
+			p.disclaimer {
+				font-size: 13px;
+				margin-top: -10px;
+			}
+
+			#equipamentos>div:nth-child(1)>hr:nth-child(1) {
+				display: none;
+			}
+
+			.btn-link {
+				font-weight: 400;
+				color: #cc0000;
+				text-decoration: underline;
+			}
+		</style>
+
+		<!-- Início do aviso de consentimento de cookies OneTrust para cloud.canondigital.com.br/canonrental/ -->
+		<script type="text/javascript" src="https://cdn.cookielaw.org/consent/1121c3a6-a496-4863-9de9-6381f3626f84/OtAutoBlock.js"></script>
+		<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="1121c3a6-a496-4863-9de9-6381f3626f84"></script>
+		<script type="text/javascript">
+			function OptanonWrapper() { }
+		</script>
+		<!-- Final do aviso de consentimento de cookies OneTrust para cloud.canondigital.com.br/canonrental/ -->
+	</head>
+	<script src="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/rental/loadCart.js"></script>
+
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-md-none d-lg-block">
+				<div class="container">
+					<a class="navbar-brand"><img class="logoImage" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/eeebe5f2-81a9-4d3f-a713-09b3d74e47da.png" height="40px" alt="Logotipo do Canon Rental"></a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="menu-desk">
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a class="nav-link" aria-current="page" href="https://cloud.canondigital.com.br/canonrental">O que é Canon Rental?</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Aluguel de Equipamentos
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/equipamentos">Câmeras e Lentes - DSLR, Mirrorless e PTZ</a></li>
+										<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/cinema">Cinema & Broadcast</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Aluguel de Estúdio
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/estudiofotografico">Estúdio
+												Fotográfico</a></li>
+										<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/estudiovideo">Estúdio de
+												vídeo e Podcast</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="https://cloud.canondigital.com.br/canonrental/faq">FAQ</a>
+								</li>
+
+							</ul>
+						</div>
+						<a href="https://cloud.canondigital.com.br/canonrental/orcamento">
+							<div class="d-flex bag-icon">
+								<img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/1bd60532-c11e-4542-9a33-1d70097bbe48.png" width="30px">
+								<span class="bag-cicle bag-cicle-desk">0</span>
+							</div>
+						</a>
+					</div>
+				</div>
+			</nav>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light d-block d-md-block d-lg-none">
+				<div class="container">
+					<a class="navbar-brand"><img class="logoImage" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/eeebe5f2-81a9-4d3f-a713-09b3d74e47da.png" height="40px" alt="Logotipo do Canon Rental"></a>
+					<div class="menuMob">
+						<a href="https://cloud.canondigital.com.br/canonrental/orcamento">
+							<div class="d-flex bag-icon">
+								<img loading="lazy" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/14/1bd60532-c11e-4542-9a33-1d70097bbe48.png" width="30px">
+								<span class="bag-cicle bag-cicle-desk">0</span>
+							</div>
+						</a>
+						<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+							<div class="offcanvas-header">
+								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+							</div>
+							<div class="offcanvas-body">
+								<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+									<li class="nav-item">
+										<a class="nav-link" href="https://cloud.canondigital.com.br/canonrental">O que é
+											Canon Rental?</a>
+									</li>
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Aluguel de Equipamentos </a>
+										<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+											<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/equipamentos">Câmeras e Lentes</a></li>
+											<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/cinema">Cinema & Broadcast</a></li>
+										</ul>
+									</li>
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											Aluguel de Estúdio
+										</a>
+										<ul class="dropdown-menu dropdown-menu-dark">
+											<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/estudiofotografico">Estúdio
+													Fotográfico</a></li>
+											<li><a class="dropdown-item" href="https://cloud.canondigital.com.br/canonrental/estudiovideo">Estúdio
+													de vídeo e Podcast</a></li>
+										</ul>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="https://cloud.canondigital.com.br/canonrental/faq">FAQ</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<div class="banner">
+				<div class="container">
+					<div class="row row-flex">
+						<div class="col-12">
+							<img class="d-none d-md-none d-lg-block" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/ac003161-3606-4e0d-babe-03d9d887478f.jpg" width="100%" alt="Banner do Canon Rental, mostrando algumas imagens de Câmeras, lentes e estúdio.">
+							<img class="d-block d-md-block d-lg-none" src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/aabd8f50-973c-4d58-afe9-2b6520557da6.jpg" width="100%" height="350px" style="object-fit:cover; height: auto;" alt="Banner do Canon Rental, mostrando algumas imagens de Câmeras, lentes e estúdio.">
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div id="rental">
+				<div class="container">
+					<div class="row row-flex">
+						<div class="col-12">
+							<h2>Cinema & Broadcast</h2>
+						</div>
+						<div class="col-12">
+							<div class="box-content">
+								<div class="description">
+									<p>Caso você deseje locação de equipamentos para a linha de Cinema & Broadcast, oferecemos abaixo uma lista dos nossos parceiros cadastrados.</p>
+									<p>Essa parceria assegura que você tenha acesso à equipamentos de alta qualidade e suporte técnico especializado, garantindo sempre às melhores soluções para suas produções audiovisuais.</p>
+									<p>Veja a lista:</p>
+									<style>
+										.box-content ul {
+											display: flex;
+											flex-direction: column;
+										}
+
+										.box-content ul li {
+											margin: 10px 0;
+										}
+
+										.box-content ul li p {
+											margin-bottom: 0px;
+										}
+									</style>
+									<ul>
+										<li>
+											<p>BENLOC</p>
+											<a target="_blank" href="https://www.bemloc.com.br/">https://www.bemloc.com.br/</a>
+										</li>
+
+										<li>
+											<p>CINECAM</p>
+											<a target="_blank" href="https://www.cinecam.com.br/">https://www.cinecam.com.br/</a>
+										</li>
+
+										<li>
+											<p>HDVLOCK</p>
+											<a target="_blank" href="https://hdvloc.com/">https://hdvloc.com/</a>
+										</li>
+
+										<li>
+											<p>LOCADORA DE EQUIPAMENTOS</p>
+											<a target="_blank" href="https://www.locadoradeequipamentos.com/">https://www.locadoradeequipamentos.com/</a>
+										</li>
+
+										<li>
+											<p>MARC FILMS</p>
+											<a target="_blank" href="http://www.marcfilms.com.br/">http://www.marcfilms.com.br/</a>
+										</li>
+
+										<li>
+											<p>MAXI ESTUDIOS</p>
+											<a target="_blank" href="https://maxionline.com.br/">https://maxionline.com.br/</a>
+										</li>
+
+										<li>
+											<p>MERLIN LOCAÇÃO</p>
+											<a target="_blank" href="https://www.merlinlocacao.com.br/">https://www.merlinlocacao.com.br/</a>
+										</li>
+
+										<li>
+											<p>MONSTERCAM</p>
+											<a target="_blank" href="https://www.monstercam.com.br/">https://www.monstercam.com.br/</a>
+										</li>
+
+										<li>
+											<p>PROTV</p>
+											<a target="_blank" href="https://protvengenharia.com.br/">https://protvengenharia.com.br/</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Modal -->
+		<div class="modal fade" id="itenAddCart" tabindex="-1" aria-labelledby="itenAddCartLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="itenAddCartLabel">Este produto foi adicionado com sucesso:</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="content">
+							<div class="products added">
+								<img class="modal_product" id="modal_product_image" src="">
+								<div class="modal_product_name"></div>
+							</div>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<a href="https://cloud.canondigital.com.br/canonrental/orcamento" type="button" class="btn btn-secondary">Concluir pedido</a>
+						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Adicionar mais itens ao
+							pedido</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section id="footer">
+			<style>
+				.footerLogo {
+					display: flex;
+					align-items: center;
+					gap: 16px;
+					text-align: center;
+					flex-direction: column;
+					padding: 20px 0 10px;
+				}
+
+				@media (min-width: 768px) {
+					.footerLogo {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						gap: 32px;
+						text-align: left;
+						flex-direction: row;
+					}
+				}
+			</style>
+			<div class="container">
+				<div class="row row-flex" style="display: flex; align-items: center;">
+					<div class="col-12 footerLogo">
+						<div class="divLogo"><img src="https://image.canondigital.com.br/lib/fe8d13727d660d7f71/m/1/92af1948-fd4b-4b4f-a542-b74b92ad99ae.png" width="100%" style="max-width: 150px;"></div>
+						<div class="divDados"><span>CANON DO BRASIL INDÚSTRIA E COMÉRCIO Ltda.</span><br>
+							<span style="font-weight: 100;">CNPJ: 46.266.771/0001-26</span><br>
+							<span style="font-weight: 100;">Inscrição Estadual: 145.145.151.111</span>
+							<!-- <br> <span style="font-weight: 100;">Endereço: Av. do Café, 277 - Torre B - 6° Andar - Vila Guarani</span>-->
+							<span style="font-weight: 100;"><a href="https://canonbrasil-privacy.my.onetrust.com/webform/ff2f82a5-84f4-4d08-8bff-1ee75db63d1e/6399d342-9d43-45d5-8c45-e65601f034de" target="_blank" style="color: #fff; text-decoration: underline; display: block; margin-top: 10px; font-size: 12px;">LGPD - Exerça seus direitos.</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script type="text/javascript" src="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/rental/addCart.js"></script>
+		<script type="text/javascript" src="https://www.loja.canon.com.br/wcsstore/cdb/pt_BR/marketing/cdb-web-development/rental/refreshItens.js"></script>
+		<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	</body>
+
+</html>
